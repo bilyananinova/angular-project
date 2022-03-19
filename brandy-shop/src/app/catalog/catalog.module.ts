@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogComponent } from './catalog-component/catalog.component';
 import { CatalogCardComponent } from './catalog-card/catalog-card.component';
 
 

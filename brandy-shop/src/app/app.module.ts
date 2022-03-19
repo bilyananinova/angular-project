@@ -10,12 +10,12 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { CatalogRoutingModule } from './catalog-routing.module';
+import { CatalogRoutingModule } from './catalog/catalog-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HomeArticleCardComponent } from './home-article-card/home-article-card.component';
-import { CatalogModule } from './catalog.module';
+import { CatalogModule } from './catalog/catalog.module';
 
 @NgModule({
   declarations: [

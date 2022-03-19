@@ -121,6 +121,7 @@
     margin-right: 0.8em;
 }
 
+.edit-btn,
 .delete-btn {
     font-family: Verdana, Geneva, sans-serif;
 }

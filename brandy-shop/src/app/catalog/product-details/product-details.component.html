@@ -1,0 +1,41 @@
+<section class="details-wrapper">
+    <section class="details-img">
+        <img src={{product.image}} alt={{product.title}} />
+    </section>
+    <section>
+        <div class="details">
+            <header class="details-header">
+                <h5>{{product.title}}</h5>
+            </header>
+
+            <span class="details-price">{{product.price}}$</span>
+            <p>{{product.description}}</p>
+
+            <div class="details-action">
+                <button class="like-btn"><i class="fas fa-thumbs-up"></i><span>0</span></button>
+                <button class="dislike-btn"><i class="fas fa-thumbs-down"></i><span>0</span></button>
+                <button class="add-btn"> <i class="fas fa-shopping-cart"></i> add to cart </button>
+                <a class="edit-btn"> <i class="fas fa-edit"></i> edit </a>
+                <button class="delete-btn"> <i class="fas fa-trash-alt"></i> delete</button>
+            </div>
+
+        </div>
+    </section>
+</section>
+
+<section class="commentSection">
+    <h5>Comments</h5>
+    <div class="comment">
+        <p><span class="author">Author</span> - <span class="date">11.12.2020</span></p>
+        <p class="comment-content">Comment content here</p>
+    </div>
+</section>
+
+<form class="commentForm">
+    <h5>Add a review</h5>
+    <label for="author">From:</label>
+    <input type="text" name="author" id="author" value="User" disabled />
+    <label for="content">Comment:</label>
+    <textarea name="content" id="content" placeholder="Leave a comment..." cols="5" rows="2"></textarea>
+    <input type="submit" value="Create comment">
+</form>
