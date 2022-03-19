@@ -1,6 +1,6 @@
 .products-wrapper {
     display: flex;
-    width: 55%;
+    width: 65%;
     margin: auto;
     flex-direction: column;
 }
