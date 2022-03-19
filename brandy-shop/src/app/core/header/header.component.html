@@ -1,0 +1,44 @@
+<header class="site-header">
+    <section class="header-logo">
+        <h1>
+            <a routerLink="/">Brandy Store</a>
+        </h1>
+        <p>Angular</p>
+    </section>
+    <section>
+        <ul class="header-contacts">
+            <li><strong>Phone:</strong>+359 888 000 000</li>
+            <li><strong>Email:</strong>email@mail.bg</li>
+
+            <li class="cart">
+                <a routerLink="/cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">2</span>
+                </a>
+            </li>
+
+        </ul>
+    </section>
+
+</header>
+
+<nav class="mainav">
+    <div>
+        <a routerLink="/">Home</a>
+        <a routerLink="/brandy-catalog">Shop</a>
+        <!-- admin navigation -->
+        <a routerLink="/brandy-catalog/create">Create product</a>
+        <a routerLink="/articles/create">Create article</a>
+    </div>
+
+    <div class="guest">
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Register</a>
+    </div>
+
+    <div class="user">
+        <a>Welcome, Pesho!</a>
+        <a routerLink="/logout" >Logout</a>
+    </div>
+
+</nav>

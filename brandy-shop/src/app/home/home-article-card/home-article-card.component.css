@@ -1,0 +1,50 @@
+.home-article {
+    width: 20em;
+    height: auto;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em 0 rgba(157, 5, 82, 0.9);
+    color: black;
+    background-color: #fff;  
+    /* animation: zoom-in 3s ease-in-out; */
+}
+
+/* @keyframes zoom-in {
+    0% {
+    transform: scale(0);
+    }
+    50% {
+    transform: scale(1.1);
+    }
+    100% {
+    transform: scale(1);
+    }
+} */
+
+.home-article-image {
+    position: relative;
+    width: 100%;
+    margin: 0.5em auto;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.home-article-image::before {
+    display: block;
+    content: '';
+    padding-top: 56.25%;
+}
+
+.home-article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-article h6 {
+    margin: 1em 0 0.5em;
+}

@@ -1,0 +1,110 @@
+.site-header {
+    display: flex;
+    margin: 1em auto;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.header-logo { 
+    line-height: 1;
+    text-align: left;
+}
+
+.header-logo h1 {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 28px;
+}
+
+.header-logo p {
+    opacity: 0.7;
+    margin-top: 2px; 
+    font-size: 0.9rem; 
+    text-transform: uppercase;
+}
+
+.header-logo h1 a {
+    color: inherit;
+}
+
+.header-contacts {
+    display: flex;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.header-contacts li {
+    margin-right: 50px;
+    position: relative;
+}
+
+.header-contacts li:last-child{
+    margin-right: 0;
+}
+
+.header-contacts strong {
+    display: block; 
+    margin: 0 0 -5px 0; 
+    padding: 0; 
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.cart .cart-count {
+    position: absolute;
+    top: -0.02em;
+    right: -1em;
+    border-radius: 50%;
+    border: 1px solid #9D0552;
+    background-color: #ffffff;
+    color: #000000;
+    z-index: 2;
+    text-align: center;
+    width: 1.6em;
+}
+
+.fa-shopping-bag {
+    font-size: 2em;
+}
+
+.cart a{
+    color:#9D0552;
+}
+
+.mainav {
+    background-color:#9D0552;
+    border-radius: 0.3em;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainav a {
+    display: flex;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 1em;
+}
+
+.mainav .active a, .mainav a:hover, .mainav li:hover > a {
+    color:#FDABDC; 
+    background-color:inherit;
+}
+
+.mainav div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.guest {
+    display: flex;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
