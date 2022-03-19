@@ -15,6 +15,7 @@ import { CatalogRoutingModule } from './catalog-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HomeArticleCardComponent } from './home-article-card/home-article-card.component';
+import { CatalogModule } from './catalog.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HomeArticleCardComponent } from './home-article-card/home-article-card.
     AppRoutingModule,
     CoreModule,
     CatalogRoutingModule,
+    CatalogModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

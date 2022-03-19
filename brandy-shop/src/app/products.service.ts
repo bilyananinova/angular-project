@@ -11,7 +11,7 @@ export class ProductsService {
   constructor(private fbs: Firestore) { }
 
   getProducts(): Observable<IProduct[]> {
-    const recipesRef = collection(this.fbs, 'users');
+    const recipesRef = collection(this.fbs, 'brandy');
     return collectionData(recipesRef, { idField: "id" }) as Observable<IProduct[]>;
   }
 }

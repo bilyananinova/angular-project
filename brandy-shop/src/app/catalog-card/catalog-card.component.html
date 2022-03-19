@@ -1,0 +1,29 @@
+<section class="product-card">
+    <div class="product-image">
+        <img src="{{product.image}}"
+            alt="{{product.title}}" />
+    </div>
+    <div class="product-details">
+
+        <header class="product-header">
+            <h5>{{product.title}}</h5>
+        </header>
+
+        <span class="product-price">{{product.price}}$</span>
+
+        <p>{{product.description.substring(0, 150)}}...</p>
+
+        <div class="product-action">
+
+            <a [routerLink]="['/brandy-catalog', product.id]" class="details-btn"> <i class="fas fa-wine-bottle"></i> details </a>
+            <button class="like-btn"><i class="fas fa-thumbs-up"></i><span>0</span></button>
+            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i><span>0</span></button>
+            <button class="add-btn"> <i class="fas fa-shopping-cart"></i> add to cart </button>
+            <!-- admin btns -->
+            <a class="edit-btn"> <i class="fas fa-edit"></i> edit </a>
+            <button class="delete-btn"> <i class="fas fa-trash-alt"></i> delete </button>
+
+        </div>
+
+    </div>
+</section>

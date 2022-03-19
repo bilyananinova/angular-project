@@ -2,9 +2,10 @@
     display: flex;
     width: 55%;
     margin: auto;
+    flex-direction: column;
 }
 
-.products-aside {
+/* .products-aside {
     flex: 0 0 20%;
     padding-right: 2em;
 }
@@ -23,151 +24,9 @@
     margin: 0.5em auto;
     cursor: pointer;
     color: #9D0552;
-}
+} */
 
 .products-list {
     padding-left: 2em;
     margin: auto;
-}
-
-.product-card {
-    box-shadow: 0px -1px 15px 0px rgba(157, 5, 82, 0.9);
-    border-radius: 0.3em;
-    display: flex;
-    position: relative;
-    margin: 2em 0;
-    background-color: #ffffff;
-}
-
-.product-image {
-    flex: 0 0 20%;
-    margin: 1em;
-    display: block;
-    position: relative;
-    overflow: hidden;
-}
-
-.product-image img {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: 100%;
-    position: absolute;
-}
-
-.product-image img::after {
-    padding-top: 100%;
-    content: '';
-    display: block;
-}
-
-.product-details {
-    text-align: left;
-    margin: 0;
-    padding: 0 2em;
-}
-
-.product-header {
-    margin: 0.5em 0;
-}
-
-.product-header p {
-    opacity: 0.6;
-}
-
-.product-type {
-    color: #9D0552;
-    text-transform: uppercase;
-}
-
-.product-price {
-    color: #9D0552;
-    font-weight: 600;
-}
-
-.product-action {
-    margin: 1.5em 0;
-}
-
-.product-action i {
-    padding-right: 0.5em;
-}
-
-.product-action a {
-    border: 1px solid #9D0552;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
-    margin-right: 0.8em;
-}
-
-.product-action a:hover {
-    border-color: #9d0551b4;
-    color: #9D0552;
-    background: #ffffff;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
-}
-
-.add-btn,
-.like-btn,
-.dislike-btn {
-    border: none;
-    border: 1px solid #9D0552;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
-    margin-right: 0.8em;
-}
-
-.add-btn {
-    font-family: Verdana, Geneva, sans-serif;
-}
-
-.add-btn:hover,
-.like-btn:hover,
-.dislike-btn:hover {
-    border-color: #9d0551b4;
-    color: #9D0552;
-    background: #ffffff;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
-}
-
-.like-btn span,
-.dislike-btn span {
-    font-family: Verdana, Geneva, sans-serif;
-}
-
-.edit-btn,
-.delete-btn {
-    border: 1px solid #9D0552;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
-    margin-right: 0.8em;
-}
-
-.delete-btn {
-    font-family: Verdana, Geneva, sans-serif;
-}
-
-.product-action .edit-btn:hover,
-.product-action .delete-btn:hover {
-    border-color: #9d0551b4;
-    color: #000000;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
-}
-
-.product-action .edit-btn:hover {
-    background: #ffe600;    
-}
-
-.product-action .delete-btn:hover {
-    background: #ff0000;
 }

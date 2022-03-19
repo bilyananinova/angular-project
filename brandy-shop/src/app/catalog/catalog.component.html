@@ -1,37 +1,8 @@
 <h3>Our Brandy</h3>
 <section class="products-wrapper">
-    <section class="products-list">
-        <section class="product-card">
-            <div class="product-image">
-                <img src="https://cdn2.bigcommerce.com/server5500/tpbc2s65/products/1395/images/1428/paulmassonbrandygrandeamber__97234__60868.1358534232.1280.1280.jpg?c=2"
-                    alt="Paul Masson VS Brandy 750ml" />
-            </div>
-            <div class="product-details">
+    <section class="products-list" *ngFor="let product of products">
 
-                <header class="product-header">
-                    <h5>Paul Masson VS Brandy 750ml</h5>
-                </header>
+        <app-catalog-card [product]="product"></app-catalog-card>
 
-                <span class="product-price">50.95$</span>
-
-                <p>A Smooth Sophisticated Brandy Crafted In The European Tradition. Aged In Oak Barrels. Paul Masson VS
-                    Is An Award Winning Favorite With A Rich Amber Glow, And Slightly Sweet Taste Profile Featuring
-                    Notes Of Caramel And Vanilla. ...</p>
-
-                <div class="product-action">
-
-                    <a class="details-btn"> <i class="fas fa-wine-bottle"></i> details </a>
-                    <button class="like-btn"><i class="fas fa-thumbs-up"></i><span>0</span></button>
-                    <button class="dislike-btn"><i class="fas fa-thumbs-down"></i><span>0</span></button>
-                    <button class="add-btn"> <i class="fas fa-shopping-cart"></i> add to cart </button>
-                    <!-- admin btns -->
-                    <a class="edit-btn"> <i class="fas fa-edit"></i> edit </a>
-                    <button class="delete-btn"> <i class="fas fa-trash-alt"></i> delete </button>
-
-                </div>
-
-            </div>
-        </section>
-        
     </section>
 </section>
