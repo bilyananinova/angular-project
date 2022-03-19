@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "brandy-shop": {
+      "hosting": {
+        "brandy-shop": [
+          "brandy-shop"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "brandy-shop"
+  }
+}

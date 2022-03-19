@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "brandy-shop:build:production",
+            "firebaseProject": "brandy-shop",
+            "firebaseHostingSite": "brandy-shop"
+          }
         }
       }
     }
