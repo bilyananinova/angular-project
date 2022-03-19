@@ -14,14 +14,14 @@ import { CatalogRoutingModule } from './catalog/catalog-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HomeArticleCardComponent } from './home-article-card/home-article-card.component';
+import { HomeCardComponent } from './home-card/home-card.component';
 import { CatalogModule } from './catalog/catalog.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HomeArticleCardComponent
+    HomeCardComponent
   ],
   imports: [
     BrowserModule,

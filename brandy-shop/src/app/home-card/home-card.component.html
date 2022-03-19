@@ -1,0 +1,13 @@
+<a [routerLink]="['/brandy-catalog', product.id]">
+    <section class="home-product">
+        <section class="home-product-image">
+            <img src={{product.image}} alt={{product.title}} />
+        </section>
+        <header class="home-wine-header">
+            <h6>{{product.title}}</h6>
+        </header>
+        <section class="home-wine-content">
+            <p>{{product.description.substring(0, 50)}}...</p>
+        </section>
+    </section>
+</a>

@@ -17,6 +17,7 @@ export class ProductsService {
 
   getProduct(id: string): Observable<IProduct> {
     let productDocRef = doc(this.fbs, `brandy/${id}`)
-    return docData(productDocRef, {idField: 'id'}) as Observable<IProduct>;
+    return docData(productDocRef, { idField: 'id' }) as Observable<IProduct>;
   }
+
 }
