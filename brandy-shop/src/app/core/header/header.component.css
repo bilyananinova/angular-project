@@ -14,7 +14,9 @@
 .header-logo h1 {
     margin-top: 8px;
     margin-bottom: 0;
-    font-size: 28px;
+    font-size: 32px;
+    color: #fffc53;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .header-logo p {
@@ -56,7 +58,7 @@
     top: -0.02em;
     right: -1em;
     border-radius: 50%;
-    border: 1px solid #9D0552;
+    border: 1px solid #202020;
     background-color: #ffffff;
     color: #000000;
     z-index: 2;
@@ -69,11 +71,11 @@
 }
 
 .cart a{
-    color:#9D0552;
+    color:#202020;
 }
 
 .mainav {
-    background-color:#9D0552;
+    background-color:#202020;
     border-radius: 0.3em;
     margin: auto;
     display: flex;
@@ -88,8 +90,8 @@
 }
 
 .mainav .active a, .mainav a:hover, .mainav li:hover > a {
-    color:#FDABDC; 
-    background-color:inherit;
+    color:#000000; 
+    background-color: #fffc53;;
 }
 
 .mainav div {

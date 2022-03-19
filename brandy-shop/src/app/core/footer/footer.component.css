@@ -37,12 +37,12 @@
 }
 
 .site-footer ul li a {
-    color: #9D0552;
+    color: #fffc53;
 }
 
 .copyright {
     background: #000000;
-    color: #9D0552;
+    color: #fffc53;
 }
 
 .copyright p {
@@ -51,6 +51,6 @@
     text-align: center;
 }
 
-.copyright a{
-    color: #9D0552;
+.copyright a {
+    color: #fffc53;
 }

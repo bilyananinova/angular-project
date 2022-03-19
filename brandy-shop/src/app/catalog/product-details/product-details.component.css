@@ -3,7 +3,7 @@
     width: 60%;
     margin: 3em auto;
     padding: 1.5em;
-    box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 5px 0px rgb(32, 32, 32, 0.9);
     background-color: #ffffff;
 }
 
@@ -52,14 +52,14 @@
 .details header::after {
     display: block;
     content: '';
-    background-color: #9d0551a1;
+    background-color: rgba(117, 117, 117, 0.993);
     width: 6em;
     height: 0.1em;
     margin: 1em 0;
 }
 
 .details-price {
-    color: #9D0552;
+    color: #202020;
     font-size: 1.2em;
     font-weight: 600;
     display: block;
@@ -70,10 +70,10 @@
     opacity: 0.6;
 }
 
-.details-type{
+/* .details-type{
     color: #9D0552;
     text-transform: uppercase;
-}
+} */
 
 .details-action {
     margin: 1.5em 0;
@@ -83,87 +83,89 @@
     padding-right: 0.5em;
 }
 
-.details-action a {
-    border: 1px solid #9D0552;
+/* .details-action a {
+    border: 1px solid #fffc53;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
+    color: #202020;
+    background: #fffc53;
     margin-right: 0.8em;
-}
+} */
 
 .details-action a:hover {
-    border-color: #9d0551b4;
-    color: #9D0552;
-    background: #ffffff;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
+    border: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px 1px #202020;
+    color: #202020;
 }
 
 .details-action .like-btn,
 .details-action .dislike-btn {
     border: none;
-    border: 1px solid #9D0552;
+    border: 1px solid #fffc53;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
+    color: #202020;
+    background: #fffc53;
     margin-right: 0.8em;
     font-family: Verdana, Geneva, sans-serif;
 }
 
 .details-action .add-btn {
-    border: 1px solid #9D0552;
+    border: 1px solid #fffc53;;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
+    color: #202020;
+    background: #fffc53;
     margin-right: 0.8em;
     font-family: Verdana, Geneva, sans-serif;
 }
 
+.details-action .like-btn:hover,
+.details-action .dislike-btn:hover,
 .details-action .add-btn:hover {
-    border-color: #9d0551b4;
-    color: #9D0552;
-    background: #ffffff;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
+    border: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px 1px #202020;
+    color: #202020;
 }
 
 .details-action .edit-btn {
-    border: 1px solid #9D0552;
+    border: 1px solid #fffc53;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
+    color: #202020;
+    background: #fffc53;
     margin-right: 0.8em;
 }
 
 .details-action .edit-btn:hover {
-    border-color: #9d0551b4;
-    color: #000000;
-    background: #ffe600;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
+    border: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px 1px #202020;
+    color: #2f00ff;  
 }
 
 .details-action .delete-btn {
-    border: 1px solid #9D0552;
+    border: 1px solid #fffc53;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
+    color: #202020;
+    background: #fffc53;
     margin-right: 0.8em;
     font-family: Verdana, Geneva, sans-serif;
 }
 
 .details-action .delete-btn:hover {
-    border-color: #9d0551b4;
-    color: #ffffff;
-    background: #ff0000;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
+    border: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px 1px #202020;
+    color: #ff0000;
 }
 
 .commentSection {
@@ -217,7 +219,7 @@
 .commentForm input,
 .commentForm textarea {
     align-self: start;
-    border: 1px solid #9D0552;
+    border: 1px solid #202020;
     border-radius: 0.5em;
 }
 
@@ -226,7 +228,7 @@
 .commentForm textarea:hover, 
 .commentForm textarea:focus {
     outline: none;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
+    box-shadow: 0px 0px 5px 1px #202020;
 }
 
 .commentForm textarea {
@@ -235,21 +237,21 @@
 
 .commentForm input[type="submit"] {
     margin: 1em 0;
-    border: 1px solid #9D0552;
+    border: 1px solid #2020;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: #9D0552;
+    color: #fffc53;
+    background: #202020;
 }
 
-input[type="submit"]:focus,
-input[type="submit"]:hover {
+.commentForm input[type="submit"]:focus,
+.commentForm input[type="submit"]:hover {
     cursor: pointer;
-    border-color: #9d0551b4;
-    color: #9D0552;
-    background: #ffffff;
-    box-shadow: 0px 0px 5px 1px #9d0551b4;
+    border-color: #202020;
+    color: #202020;
+    background: transparent;
+    box-shadow: 0px 0px 5px 1px #202020;
 }
 
 .commentForm span {
