@@ -10,12 +10,14 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { CatalogModule } from './catalog/catalog.module';
 import { CatalogRoutingModule } from './catalog/catalog-routing.module';
+import { UserModule } from './user/user.module';
+import { UserRoutingModule } from './user/user-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HomeCardComponent } from './home-card/home-card.component';
-import { CatalogModule } from './catalog/catalog.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CatalogModule } from './catalog/catalog.module';
     CoreModule,
     CatalogRoutingModule,
     CatalogModule,
+    UserRoutingModule,
+    UserModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

@@ -1,0 +1,157 @@
+.cart-wrapper {
+  margin: 3em auto;
+  width: 60%;
+  padding: 2em;
+}
+
+.summary-box,
+.checkout-box {
+  background: #ffffff;
+  width: 20%;
+  margin: 3em auto;
+  border-radius: 0.3em;
+  box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+}
+
+.summary-box h4,
+.summary-box div,
+.checkout-box h4,
+.checkout-box div {
+  padding:  0.8em 0 0;
+  margin: auto;
+}
+
+.summary-box div span,
+.checkout-box div span {
+  color: #202020;
+  font-weight: 600;
+}
+
+.summary-box button,
+.checkout-box button {
+  width: 80%;
+  border: 1px solid #fffc53;
+  padding: 1em 1.5em;
+  border-radius: 0.3em;
+  text-transform: uppercase;
+  color: #202020;
+  background: #fffc53;
+  margin: 1.5em;
+}
+
+.summary-box button:hover,
+.checkout-box button:hover {
+  border-color: #202020;
+  color: #202020;
+  background: transparent;
+  box-shadow: 0px 0px 5px 1px #202020;
+  cursor: pointer;
+}
+
+.personal-info {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+.personal-info input {
+  border: none;
+  border: 1px solid #202020;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin-bottom: 1.5em;
+}
+
+.personal-info input:hover,
+.personal-info input:focus {
+  box-shadow: 0px 0px 5px 1px #202020;
+  outline: none;
+}
+
+.order-card {
+    box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 0.3em;
+    display: flex;
+    position: relative;
+    margin: 2em 0;
+    background-color: #ffffff;
+}
+
+.order-image {
+    flex: 0 0 20%;
+    margin: 1em;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-image img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100%;
+    position: absolute;
+}
+
+.order-image img::after {
+    padding-top: 100%;
+    content: '';
+    display: block;
+}
+
+.order-details {
+    text-align: left;
+    margin: 0;
+    padding: 0 2em;
+}
+
+.order-header {
+    margin: 0.5em 0;
+}
+
+.order-header p {
+    opacity: 0.6;
+}
+
+.order-type {
+    color: #fffc53;
+    text-transform: uppercase;
+}
+
+.order-price {
+    color: #202020;
+    font-weight: 600;
+}
+
+.order-action {
+    margin: 1.5em 0;
+    display: flex;
+}
+
+.order-action .product-qty {
+    padding: 0 0.5em;
+}
+
+.btn-minus .fa-minus,
+.btn-plus .fa-plus {
+    cursor: pointer;
+}
+
+.order-action button {
+    border: 1px solid #fffc53;
+    padding: 0.5em 0.8em;
+    border-radius: 0.3em;
+    text-transform: uppercase;
+    color: #202020;
+    background: #fffc53;
+    margin: 0 1em;
+}
+
+.order-action button:hover {
+    border-color: #202020;
+    color: #202020;
+    background: #ffffff;
+    box-shadow: 0px 0px 5px 1px #202020;
+}

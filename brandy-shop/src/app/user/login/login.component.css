@@ -1,0 +1,83 @@
+.form-wrapper {
+    display: flex;
+    box-shadow: 0px -1px 37px 0px rgba(0,0,0,0.75);
+    width: 60%;
+    margin: 3em auto 5em;
+}
+
+.form-section {
+    flex: 0 0 50%;
+    background: #ffffff;
+    position: relative;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+    margin: 3em auto;
+}
+
+.login-form label {
+    opacity: 0.9;
+    margin: 1.2em 0 0.5em;
+}
+
+.login-form p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.login-button {
+    margin: 2em 0 0.5em;
+    padding: 0.5em;
+    font-size: 1.1em;
+    color: #202020;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #fffc53;
+}
+
+.login-button:hover,
+.login-button:focus {
+    cursor: pointer;
+}
+
+.login-form input {
+    border: none;
+    border: 1px solid #202020;
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.login-form input:focus,
+.login-form input:hover {
+    box-shadow: 0px 0px 5px 1px #202020;
+    outline: none;
+}
+
+.form-img {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 50%;
+}
+
+.form-img img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+
+.form-img img:after {
+    padding-top: 100%;
+    content: '';
+    display: block;
+}
+
+.required {
+    color: #ff0000;
+}
