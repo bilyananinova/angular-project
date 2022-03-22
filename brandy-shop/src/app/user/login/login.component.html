@@ -1,15 +1,14 @@
 <h3>Login Page</h3>
 <div class="form-wrapper">
     <section class="form-img">
-        <img src="../../../assets/amr-taha-Tq7E1inoPig-unsplash.jpg"
-            alt="" />
+        <img src="../../../assets/amr-taha-Tq7E1inoPig-unsplash.jpg" alt="" />
     </section>
     <section class="form-section">
-        <form class="login-form">
+        <form class="login-form" #loginForm="ngForm" (ngSubmit)="loginHandler(loginForm.value)">
             <label for="login-email">Email address<span class="required">*</span></label>
-            <input type="email" class="form-input" id="login-email" name="email" placeholder="ivan@mail.bg" />
+            <input type="email" class="form-input" id="login-email" name="email" placeholder="ivan@mail.bg" ngModel />
             <label for="login-password">Password <span class="required">*</span></label>
-            <input type="password" class="form-input" id="login-password" name="password" placeholder="******" />
+            <input type="password" class="form-input" id="login-password" name="password" placeholder="******" ngModel />
             <button type="submit" class="login-button">Login</button>
             <p>Don't have an account?
                 <a routerLink="/register">Register</a> now.

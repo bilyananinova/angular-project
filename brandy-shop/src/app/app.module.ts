@@ -18,6 +18,7 @@ import { UserRoutingModule } from './user/user-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HomeCardComponent } from './home-card/home-card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HomeCardComponent } from './home-card/home-card.component';
     provideFirestore(() => getFirestore()),
     // AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
