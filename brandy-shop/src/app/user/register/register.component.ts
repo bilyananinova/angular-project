@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     let password = value.password;
     let rePass = value.rePassword;
 
-    this.userService.register(name, email, password);
+    this.userService.register(name, email, password, rePass);
   }
 
 }

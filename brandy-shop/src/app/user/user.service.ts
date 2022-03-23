@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { doc, setDoc, Firestore } from '@angular/fire/firestore';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +11,11 @@ export class UserService {
 
   constructor(public auth: Auth, public fbs: Firestore, public router: Router) { }
 
-  register(name: string, email: string, password: string) {
+  register(name: string, email: string, password: string, rePass: string) {
+
+    if (password !== rePass) {
+      alert('Password missmatch!')
+    }
 
     return createUserWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
