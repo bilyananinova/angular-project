@@ -21,8 +21,6 @@ export class RegisterComponent implements OnInit {
     let rePass = value.rePassword;
 
     this.userService.register(name, email, password);
-    this.router.navigate(['/']);
-
   }
 
 }

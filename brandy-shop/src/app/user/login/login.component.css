@@ -78,6 +78,7 @@
     display: block;
 }
 
+.error-msg,
 .required {
     color: #ff0000;
 }

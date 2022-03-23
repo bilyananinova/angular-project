@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { doc, setDoc, Firestore} from '@angular/fire/firestore';
+import { doc, setDoc, Firestore } from '@angular/fire/firestore';
+import { Route, Router } from '@angular/router';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { doc, setDoc, Firestore} from '@angular/fire/firestore';
 })
 export class UserService {
 
-  constructor(public auth: Auth, public fbs: Firestore) { }
+  constructor(public auth: Auth, public fbs: Firestore, public router: Router) { }
 
   register(name: string, email: string, password: string) {
 
@@ -18,6 +19,11 @@ export class UserService {
           name: name,
           email: response.user.email
         });
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        console.error(err.message);
+        alert('Wrong username or password');
       })
   }
 
@@ -25,7 +31,14 @@ export class UserService {
 
     signInWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
-        return response.user;
+        return response;
+      })
+      .then(res => {
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        console.error(err.message);
+        alert('Wrong email or password');
       })
   }
 
