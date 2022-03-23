@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/shared/product';
 
 import { ProductsService } from '../products.service';
@@ -13,14 +13,19 @@ export class ProductDetailsComponent implements OnInit {
 
   @Input() product!: IProduct;
 
-  constructor(private productService: ProductsService, private route: ActivatedRoute) { }
+  constructor(private productsService: ProductsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
-    this.productService.getProduct(id).subscribe(p => {
+    this.productsService.getProduct(id).subscribe(p => {
       this.product = p;
     })
 
+  }
+
+  deleteHandler(id: string) {
+    this.productsService.deleteProduct(id);
+    this.router.navigate(['/brandy-catalog']);
   }
 
 }

@@ -47,6 +47,6 @@ export class UserService {
   }
 
   logout() {
-    signOut(this.auth)
+    signOut(this.auth);
   }
 }

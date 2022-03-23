@@ -7,4 +7,5 @@ export interface IProduct {
     "image": string;
     "id": string;
     "likes": IUser[];
+    "comments": [];
 }

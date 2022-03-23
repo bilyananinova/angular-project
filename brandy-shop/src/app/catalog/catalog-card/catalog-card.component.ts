@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '../../shared/product';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-catalog-card',
@@ -10,9 +11,12 @@ export class CatalogCardComponent implements OnInit {
 
   @Input() product!: IProduct;
   
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
   }
 
+  deleteHandler(id: string) {
+    this.productsService.deleteProduct(id)
+  }
 }

@@ -16,13 +16,24 @@ export class ProductsService {
   }
 
   getProduct(id: string): Observable<IProduct> {
-    let productDocRef = doc(this.fbs, `brandy/${id}`)
+    let productDocRef = doc(this.fbs, 'brandy', id)
     return docData(productDocRef, { idField: 'id' }) as Observable<IProduct>;
   }
 
-  createProduct(title: string, description: string, price: number, image: string): void {
+  createProduct(product: IProduct): void {
     let productRef = collection(this.fbs, 'brandy');
-    addDoc(productRef, { title, description, price, image, comments: [] });
+    addDoc(productRef, {
+      title: product.title,
+      description: product.description,
+      price: +product.price,
+      image: product.image,
+      comments: [],
+      likes: []
+    });
   }
 
+  deleteProduct(id: string): void {
+    let productDocRef = doc(this.fbs, 'brandy', id)
+    deleteDoc(productDocRef);
+  }
 }

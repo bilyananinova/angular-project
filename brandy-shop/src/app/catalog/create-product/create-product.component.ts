@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IProduct } from 'src/app/shared/product';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -9,16 +10,20 @@ import { ProductsService } from '../products.service';
 })
 export class CreateProductComponent implements OnInit {
 
+  product!: IProduct;
+
   constructor(public productsService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  createHandle(value: any) {
+  createHandle(value: IProduct) {
 
-    if (value.title != '', value.description != '', value.price != '', value.image != '') {
+    this.product = value;
 
-      this.productsService.createProduct(value.title, value.description, +value.price, value.image);
+    if (this.product.title != '' && this.product.description != '' &&  this.product.price != 0 &&  this.product.image != '') {
+
+      this.productsService.createProduct(this.product);
       this.router.navigate(['/brandy-catalog'])
     } else {
       alert('All fields are required!');
