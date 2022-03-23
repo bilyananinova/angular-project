@@ -20,4 +20,9 @@ export class ProductsService {
     return docData(productDocRef, { idField: 'id' }) as Observable<IProduct>;
   }
 
+  createProduct(title: string, description: string, price: number, image: string): void {
+    let productRef = collection(this.fbs, 'brandy');
+    addDoc(productRef, { title, description, price, image, comments: [] });
+  }
+
 }

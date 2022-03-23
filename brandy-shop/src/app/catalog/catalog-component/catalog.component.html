@@ -1,5 +1,5 @@
 <h3>Our Brandy</h3>
-<section class="products-wrapper">
+<section class="products-wrapper" *ngIf="products">
     <section class="products-list" *ngFor="let product of products">
 
         <app-catalog-card [product]="product"></app-catalog-card>

@@ -67,3 +67,7 @@
     color: #202020;
     background-color: #fffc53;
 }
+
+.error-msg {
+    color: #ff0000;
+}

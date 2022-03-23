@@ -7,7 +7,7 @@
         <form class="login-form" #loginForm="ngForm" (ngSubmit)="loginHandler(loginForm.value)">
             <label for="login-email">Email address</label>
             <input type="email" class="form-input" id="login-email" name="email" placeholder="ivan@mail.bg" #emailInput="ngModel" ngModel required touched/>
-            <p class="error-msg" *ngIf="emailInput.touched">Email is required!</p>
+            <p class="error-msg" *ngIf="emailInput.touched && emailInput.errors?.['required']"> Email is required! </p>
 
             <label for="login-password">Password </label>
             <input type="password" class="form-input" id="login-password" name="password" placeholder="******" #password="ngModel" ngModel required minlength="6" />

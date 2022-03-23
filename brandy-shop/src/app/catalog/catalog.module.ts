@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CatalogComponent } from './catalog-component/catalog.component';
 import { CatalogCardComponent } from './catalog-card/catalog-card.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,7 +17,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [CatalogComponent, CatalogCardComponent, CreateProductComponent]
 })
