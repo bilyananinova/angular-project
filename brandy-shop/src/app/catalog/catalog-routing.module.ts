@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog-component/catalog.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
@@ -11,7 +12,13 @@ const routes: Routes = [
   },
   {
     path: 'brandy-catalog/create-product',
+    pathMatch: 'full',
     component: CreateProductComponent
+  },
+  {
+    path: 'brandy-catalog/:id/edit',
+    pathMatch: 'full',
+    component: EditProductComponent
   },
   {
     path: 'brandy-catalog/:id',

@@ -4,26 +4,27 @@ import { IProduct } from 'src/app/shared/product';
 import { ProductsService } from '../products.service';
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class EditProductComponent implements OnInit {
 
   @Input() product!: IProduct;
 
-  constructor(private productsService: ProductsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public productsService: ProductsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
     this.productsService.getProduct(id).subscribe(p => {
       this.product = p;
     })
-
   }
 
-  deleteHandler(id: string) {
-    this.productsService.deleteProduct(id);
+  editHandler() {
+    // console.log(this.product);
+    
+    this.productsService.updateProduct(this.product);
     this.router.navigate(['/brandy-catalog']);
   }
 

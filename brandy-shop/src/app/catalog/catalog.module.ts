@@ -6,6 +6,8 @@ import { CatalogComponent } from './catalog-component/catalog.component';
 import { CatalogCardComponent } from './catalog-card/catalog-card.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { FormsModule } from '@angular/forms';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 
@@ -13,13 +15,15 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     CatalogComponent,
     CatalogCardComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductDetailsComponent,
+    EditProductComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule
   ],
-  exports: [CatalogComponent, CatalogCardComponent, CreateProductComponent]
+  exports: [CatalogComponent, CatalogCardComponent, CreateProductComponent, ProductDetailsComponent]
 })
 export class CatalogModule { }

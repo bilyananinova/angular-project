@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, doc, docData, addDoc, deleteDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, docData, addDoc, deleteDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { IProduct } from '../shared/product';
 
@@ -16,7 +16,7 @@ export class ProductsService {
   }
 
   getProduct(id: string): Observable<IProduct> {
-    let productDocRef = doc(this.fbs, 'brandy', id)
+    let productDocRef = doc(this.fbs, 'brandy', id);
     return docData(productDocRef, { idField: 'id' }) as Observable<IProduct>;
   }
 
@@ -30,6 +30,18 @@ export class ProductsService {
       comments: [],
       likes: []
     });
+  }
+
+  updateProduct(product: IProduct): void {
+
+    let productDocRef = doc(this.fbs, 'brandy', product.id);
+    updateDoc(productDocRef, {
+      id: product.id,
+      title: product.title,
+      description: product.description,
+      price: +product.price,
+      image: product.image
+    })
   }
 
   deleteProduct(id: string): void {
