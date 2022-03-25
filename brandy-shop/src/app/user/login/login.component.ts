@@ -16,7 +16,12 @@ export class LoginComponent implements OnInit {
   loginHandler(value: any) {
     let email = value.email;
     let password = value.password;
+    
+    if (email != '' && password != '') {
+      this.userService.login(email, password)
+    } else {
+      alert('All fields are required!');
+    }
 
-    this.userService.login(email, password)
   }
 }

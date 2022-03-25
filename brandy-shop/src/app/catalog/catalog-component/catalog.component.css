@@ -5,27 +5,6 @@
     flex-direction: column;
 }
 
-/* .products-aside {
-    flex: 0 0 20%;
-    padding-right: 2em;
-}
-
-.products-aside h6 {
-    padding: 0;
-    text-align: left;
-}
-
-.products-aside ul {
-    padding: 0;
-    text-align: left;
-}
-
-.products-aside li {
-    margin: 0.5em auto;
-    cursor: pointer;
-    color: #9D0552;
-} */
-
 .products-list {
     padding-left: 2em;
     margin: auto;

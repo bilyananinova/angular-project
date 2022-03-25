@@ -44,11 +44,6 @@
     opacity: 0.6;
 }
 
-/* .product-type {
-    color: #fffc53;
-    text-transform: uppercase;
-} */
-
 .product-price {
     font-weight: 600;
 }
@@ -61,26 +56,9 @@
     padding-right: 0.5em;
 }
 
-.product-action a {
-    border: 1px solid #fffc53;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #202020;
-    background: #fffc53;
-    margin-right: 0.8em;
-}
-
-.product-action a:hover {
-    border: 1px solid transparent;
-    background-color: transparent;
-    box-shadow: 0px 0px 5px 1px #202020;
-    color: #202020;
-}
-
-.add-btn,
-.like-btn,
-.dislike-btn {
+.details-btn, .add-btn,
+.like-btn, .dislike-btn,
+.edit-btn, .delete-btn  {
     border: none;
     border: 1px solid #fffc53;
     padding: 0.5em 0.8em;
@@ -91,45 +69,25 @@
     margin-right: 0.8em;
 }
 
-.add-btn {
-    font-family: Verdana, Geneva, sans-serif;
-}
-
-.add-btn:hover,
-.like-btn:hover,
-.dislike-btn:hover {
-    border: 1px solid transparent;
-    background-color: transparent;
-    box-shadow: 0px 0px 5px 1px #202020;
-    color: #202020;
-}
-
+.add-btn,
 .like-btn span,
 .dislike-btn span {
     font-family: Verdana, Geneva, sans-serif;
 }
 
-.edit-btn,
-.delete-btn {
-    border: 1px solid #fffc53;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #000000;
-    background: #fffc53;
-    margin-right: 0.8em;
+.edit-btn:hover, .delete-btn:hover,
+.details-btn:hover, .add-btn:hover,
+.like-btn:hover, .dislike-btn:hover {
+    border: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px 1px #202020;
+    color: #202020;
+    cursor: pointer;
 }
 
 .edit-btn,
 .delete-btn {
     font-family: Verdana, Geneva, sans-serif;
-}
-
-.product-action .edit-btn:hover,
-.product-action .delete-btn:hover {
-    border: 1px solid transparent;
-    background-color: transparent;
-    box-shadow: 0px 0px 5px 1px #202020;
 }
 
 .product-action .edit-btn:hover {

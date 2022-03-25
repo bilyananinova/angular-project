@@ -10,14 +10,13 @@ import { IProduct } from '../shared/product';
 })
 export class HomeComponent implements OnInit {
 
-  products: IProduct[]= [];
-  
+  products: IProduct[] = [];
+
   constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(p => {
+    this.productService.getLastProducts().subscribe(p => {
       this.products = p;
     })
   }
-
 }

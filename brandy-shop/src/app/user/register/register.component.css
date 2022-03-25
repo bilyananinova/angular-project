@@ -78,7 +78,6 @@
     display: block;
 }
 
-.error-msg,
-.required {
+.error-msg {
     color: #ff0000;
 }

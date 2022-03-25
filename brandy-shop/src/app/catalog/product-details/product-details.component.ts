@@ -19,7 +19,6 @@ export class ProductDetailsComponent implements OnInit {
     this.productsService.getProduct(id).subscribe(p => {
       this.product = p;
     })
-
   }
 
   deleteHandler(id: string) {

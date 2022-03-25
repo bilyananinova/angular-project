@@ -1,5 +1,5 @@
 <h3>Edit Product</h3>
-<div class="form-wrapper edit-product">
+<div class="form-wrapper edit-product" *ngIf="product">
     <section class="form-section edit-product-section">
         <form class="edit-product-form" #editForm="ngForm" (ngSubmit)="editHandler()">
             <label for="product-title">Title</label>

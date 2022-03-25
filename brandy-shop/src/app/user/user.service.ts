@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { doc, setDoc, Firestore } from '@angular/fire/firestore';
+import { doc, setDoc, Firestore, docData } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IUser } from '../shared/user';
 
 
 @Injectable({
@@ -23,6 +25,7 @@ export class UserService {
           name: name,
           email: response.user.email
         });
+        this.getUser(response.user.uid);
         this.router.navigate(['/']);
       })
       .catch(err => {
@@ -38,6 +41,7 @@ export class UserService {
         return response;
       })
       .then(res => {
+        this.getUser(res.user.uid);
         this.router.navigate(['/']);
       })
       .catch(err => {
@@ -48,5 +52,13 @@ export class UserService {
 
   logout() {
     signOut(this.auth);
+  }
+
+  getUser(id: string) {
+    let userRef = doc(this.fbs, 'users', id);
+    let user = docData(userRef, { idField: 'id' }) as Observable<IUser>;
+    user.subscribe(u => {
+      return u;
+    })
   }
 }

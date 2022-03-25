@@ -21,7 +21,7 @@
             <label for="register-repeat-password">Repeat Password </label>
             <input type="password" class="form-input" id="register-repeat-password" name="rePassword"
                 placeholder="******" #rePassword="ngModel" ngModel required minlength="6" />
-                <p class="error-msg" *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long!</p>
+                <p class="error-msg" *ngIf="rePassword.errors?.['minlength']">Password must be at least 6 characters long!</p>
 
             <button type="submit" class="register-button">Register</button>
             <p>Already have an account...

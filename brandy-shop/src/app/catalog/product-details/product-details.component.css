@@ -70,10 +70,7 @@
     opacity: 0.6;
 }
 
-/* .details-type{
-    color: #9D0552;
-    text-transform: uppercase;
-} */
+/* DETAILS BUTTONS */
 
 .details-action {
     margin: 1.5em 0;
@@ -83,23 +80,9 @@
     padding-right: 0.5em;
 }
 
-/* .details-action a {
-    border: 1px solid #fffc53;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #202020;
-    background: #fffc53;
-    margin-right: 0.8em;
-} */
-
-.details-action a:hover {
-    border: 1px solid transparent;
-    background-color: transparent;
-    box-shadow: 0px 0px 5px 1px #202020;
-    color: #202020;
-}
-
+.details-action .delete-btn,
+.details-action .add-btn,
+.details-action .edit-btn,
 .details-action .like-btn,
 .details-action .dislike-btn {
     border: none;
@@ -113,17 +96,8 @@
     font-family: Verdana, Geneva, sans-serif;
 }
 
-.details-action .add-btn {
-    border: 1px solid #fffc53;;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #202020;
-    background: #fffc53;
-    margin-right: 0.8em;
-    font-family: Verdana, Geneva, sans-serif;
-}
-
+.details-action .delete-btn:hover,
+.details-action .edit-btn:hover,
 .details-action .like-btn:hover,
 .details-action .dislike-btn:hover,
 .details-action .add-btn:hover {
@@ -131,42 +105,18 @@
     background-color: transparent;
     box-shadow: 0px 0px 5px 1px #202020;
     color: #202020;
-}
-
-.details-action .edit-btn {
-    border: 1px solid #fffc53;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #202020;
-    background: #fffc53;
-    margin-right: 0.8em;
+    cursor: pointer;
 }
 
 .details-action .edit-btn:hover {
-    border: 1px solid transparent;
-    background-color: transparent;
-    box-shadow: 0px 0px 5px 1px #202020;
     color: #2f00ff;  
 }
 
-.details-action .delete-btn {
-    border: 1px solid #fffc53;
-    padding: 0.5em 0.8em;
-    border-radius: 0.3em;
-    text-transform: uppercase;
-    color: #202020;
-    background: #fffc53;
-    margin-right: 0.8em;
-    font-family: Verdana, Geneva, sans-serif;
-}
-
 .details-action .delete-btn:hover {
-    border: 1px solid transparent;
-    background-color: transparent;
-    box-shadow: 0px 0px 5px 1px #202020;
     color: #ff0000;
 }
+
+/* COMMENTS */
 
 .commentSection {
     width: 60em;

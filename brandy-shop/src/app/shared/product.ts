@@ -8,4 +8,5 @@ export interface IProduct {
     "id": string;
     "likes": IUser[];
     "comments": [];
+    "createdAt": string;
 }
