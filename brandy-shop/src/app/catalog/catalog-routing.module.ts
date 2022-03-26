@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from '../guards/admin.guard';
 import { CatalogComponent } from './catalog-component/catalog.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
@@ -13,12 +14,14 @@ const routes: Routes = [
   {
     path: 'brandy-catalog/create-product',
     pathMatch: 'full',
-    component: CreateProductComponent
+    component: CreateProductComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: 'brandy-catalog/:id/edit',
     pathMatch: 'full',
-    component: EditProductComponent
+    component: EditProductComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: 'brandy-catalog/:id',

@@ -12,8 +12,8 @@
 
             <li class="cart">
                 <a routerLink="/cart">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-count">2</span>
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">2</span>
                 </a>
             </li>
 
@@ -30,14 +30,16 @@
         <a routerLink="/brandy-catalog/create-product">Create product</a>
     </div>
 
-    <div class="guest">
-        <a routerLink="/login">Login</a>
-        <a routerLink="/register">Register</a>
+    <div class="user" *ngIf="email$ | async as email; else login">
+        <a routerLink="/profile" >Welcome, {{email}} !</a>
+        <a routerLink="/" (click)="logoutHandler()">Logout</a>
     </div>
 
-    <div class="user">
-        <a routerLink="/profile" >Welcome, Pesho!</a>
-        <a routerLink="/" (click)="logoutHandler()" >Logout</a>
-    </div>
+    <ng-template #login>
+        <div class="guest">
+            <a routerLink="/login">Login</a>
+            <a routerLink="/register">Register</a>
+        </div>
+    </ng-template>
 
 </nav>

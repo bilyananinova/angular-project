@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IUser } from 'src/app/shared/user';
+import { Observable } from 'rxjs';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -10,9 +10,12 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent implements OnInit {
 
+  email$: Observable<string | null> = this.userService.email$;  
+  
   constructor(public userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
   logoutHandler() {
