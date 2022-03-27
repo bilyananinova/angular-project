@@ -51,15 +51,30 @@
 
     <section class="checkout-box">
         <h4>Checkout</h4>
-        <div class="personal-info">
-            <label htmlFor="phone">Phone</label>
-            <input type="text" class="checkout-input" id="phone" name="phone" placeholder="+359 888 000 000" />
-            <label htmlFor="address">Address</label>
-            <input type="text" class="checkout-input" id="address" name="address"
-                placeholder="Street Name & Number, Town, Postcode/Zip" />
-        </div>
-        <div>Total Products: <span>{{totalQty}}</span></div>
-        <div>Total Price to Pay: <span>{{totalToPay.toFixed(2)}} $</span></div>
-        <button (click)="endOrder()">Submit</button>
+        <form #checkoutForm="ngForm">
+
+            <div class="personal-info">
+                <div>
+                    <label htmlFor="phone">Phone</label>
+                    <input type="text" class="checkout-input" id="phone" name="phone" placeholder="+359 888 000 000"
+                        #phoneInput="ngModel" ngModel required touched />
+                    <p class="error-msg" *ngIf="phoneInput.touched && phoneInput.errors?.['required']"> Phone is
+                        required!
+                    </p>
+                </div>
+                <div>
+                    <label htmlFor="address">Address</label>
+                    <input type="text" class="checkout-input" id="address" name="address"
+                        placeholder="Street Name & Number, Town, Postcode/Zip" #addressInput="ngModel" ngModel required
+                        touched />
+                    <p class="error-msg" *ngIf="addressInput.touched && addressInput.errors?.['required']"> Address is
+                        required!
+                </div>
+
+            </div>
+            <div>Total Products: <span>{{totalQty}}</span></div>
+            <div>Total Price to Pay: <span>{{totalToPay.toFixed(2)}} $</span></div>
+            <button (click)="endOrder()">Submit</button>
+        </form>
     </section>
 </ng-template>

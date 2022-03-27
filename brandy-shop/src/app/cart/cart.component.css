@@ -48,18 +48,21 @@
   cursor: pointer;
 }
 
-.personal-info {
+.personal-info div {
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: auto;
 }
 
-.personal-info input {
+.personal-info div input {
   border: none;
   border: 1px solid #202020;
   border-radius: 0.5em;
   padding: 1em;
+}
+
+.personal-info div  {
   margin-bottom: 1.5em;
 }
 
@@ -154,4 +157,10 @@
   color: #202020;
   background: #ffffff;
   box-shadow: 0px 0px 5px 1px #202020;
+}
+
+.error-msg {
+  margin-top: 0;
+  padding-top: 0;
+  color: #ff0000;
 }
