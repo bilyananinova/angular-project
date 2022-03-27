@@ -35,7 +35,8 @@ export class ProductsService {
       image: product.image,
       comments: [],
       likes: [],
-      createdAt: Date.now()
+      createdAt: Date.now(),
+      qty: 1,
     });
   }
 

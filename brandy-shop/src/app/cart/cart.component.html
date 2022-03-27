@@ -1,0 +1,61 @@
+<h3>Shopping Cart</h3>
+<section class="cart-wrapper">
+
+    <ng-container *ngIf="cartList && cartList.length > 0; else emptyCart">
+        <section class="order-card" *ngFor="let product of cartList">
+            <div class="order-image">
+                <img src="{{product.image}}" alt="{{product.title}}" />
+            </div>
+            <div class="order-details">
+
+                <header class="order-header">
+                    <h5>{{product.title}}</h5>
+                </header>
+
+                <span class="order-price">{{(product.price * product.qty).toFixed(2)}} $</span>
+
+                <div class="order-action">
+                    <div class="btn-minus">
+                        <i class="fas fa-minus" (click)="productDecrease(product)"></i>
+                    </div>
+                    <div class="product-qty">{{product.qty}}</div>
+                    <div class="btn-plus">
+                        <i class="fas fa-plus" (click)="productIncrease(product)"></i>
+                    </div>
+
+                    <button (click)="productDelete(product.id)">Delete</button>
+
+                </div>
+
+            </div>
+        </section>
+    </ng-container>
+
+    <ng-template #emptyCart>
+        <h3 class="no-content">Your shopping cart is empty</h3>
+    </ng-template>
+
+</section>
+
+
+
+
+<section class="summary-box">
+    <h4>Cart Summary</h4>
+    <div>Total Products: <span>10</span></div>
+    <div>Total Price to Pay: <span>50 $</span></div>
+    <button>Continue</button>
+</section>
+<section class="checkout-box">
+    <h4>Checkout</h4>
+    <div class="personal-info">
+        <label htmlFor="phone">Phone <span class="required">*</span></label>
+        <input type="text" class="checkout-input" id="phone" name="phone" placeholder="+359 888 000 000" />
+        <label htmlFor="address">Address <span class="required">*</span></label>
+        <input type="text" class="checkout-input" id="address" name="address"
+            placeholder="Street Name & Number, Town, Postcode/Zip" />
+    </div>
+    <div>Total Products: <span>10</span></div>
+    <div>Total Price to Pay: <span>50 $</span></div>
+    <button>Submit</button>
+</section>

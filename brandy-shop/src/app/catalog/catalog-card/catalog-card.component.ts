@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart/cart.service';
 import { IProduct } from '../../shared/product';
 import { ProductsService } from '../products.service';
 
@@ -10,10 +11,15 @@ import { ProductsService } from '../products.service';
 export class CatalogCardComponent implements OnInit {
 
   @Input() product!: IProduct;
-  
-  constructor(private productsService: ProductsService) { }
+  userId = localStorage.getItem('id') as string;
+
+  constructor(private productsService: ProductsService, private cartService: CartService) { }
 
   ngOnInit(): void {
+  }
+
+  cartHandler(product: any) {
+    this.cartService.addCart(product, this.userId)
   }
 
   deleteHandler(id: string) {

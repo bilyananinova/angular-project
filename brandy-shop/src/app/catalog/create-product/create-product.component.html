@@ -6,16 +6,16 @@
             <input type="text" class="form-input" id="product-title" name="title" #title="ngModel" ngModel required>
             <p class="error-msg" *ngIf="title.touched && title.errors?.['required']"> Title is required! </p>
 
-            <label for="product-description">Description<span class="required">*</span></label>
+            <label for="product-description">Description</label>
             <textarea cols="50" rows="5" id="product-description" name="description" #description="ngModel" ngModel
                 required></textarea>
             <p class="error-msg" *ngIf="description.touched && description.errors?.['required']"> Description is required! </p>
 
-            <label for="product-price">Price<span class="required">*</span></label>
+            <label for="product-price">Price</label>
             <input type="text" class="form-input" id="product-price" name="price" #price="ngModel" ngModel required>
             <p class="error-msg" *ngIf="price.touched && price.errors?.['required']"> Price is required! </p>
 
-            <label for="product-img">Image<span class="required">*</span></label>
+            <label for="product-img">Image</label>
             <input type="text" class="form-input" id="product-img" name="image" #image="ngModel" ngModel required>
             <p class="error-msg" *ngIf="image.touched && image.errors?.['required']"> Image is required! </p>
 

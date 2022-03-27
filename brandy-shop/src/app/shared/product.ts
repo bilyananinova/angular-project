@@ -9,4 +9,5 @@ export interface IProduct {
     "likes": IUser[];
     "comments": [];
     "createdAt": string;
+    "qty": number
 }

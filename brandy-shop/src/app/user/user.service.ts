@@ -1,43 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { AngularFireAuth,  } from '@angular/fire/compat/auth';
-import { Database, set, ref, update } from '@angular/fire/database';
+import { doc, setDoc, Firestore } from '@angular/fire/firestore';
+import { AngularFireAuth, } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(public auth: Auth, public router: Router, public db: Database, public fireAuth: AngularFireAuth) { }
+
+  constructor(public auth: Auth, public fbs: Firestore, public router: Router, public fireAuth: AngularFireAuth) { }
 
   currentUser$: Observable<firebase.default.User | null> = this.fireAuth.authState;
-  email$: Observable<string | null> = this.currentUser$.pipe(
-    map(user => {
-      console.log(user?.uid);
-      return !user ? null : user.email
-    })
-  )
+  email$: Observable<string | null> = this.currentUser$.pipe(map(user => { return !user ? null : user.email }));  
 
-  register(name: string, email: string, password: string, rePass: string): void {
+  register(name: string, email: string, password: string, rePass: string) {
 
     if (password !== rePass) {
-      alert('Password mismatch!')
+      alert('Password missmatch!')
     }
 
-    createUserWithEmailAndPassword(this.auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        let user = userCredential.user;
-        // console.log(user);
-
-        set(ref(this.db, 'users/' + user.uid), {
-          username: name,
-          email: email,
-          id: user.uid
+    return createUserWithEmailAndPassword(this.auth, email, password)
+      .then((response: any) => {
+        setDoc(doc(this.fbs, "users", response.user.uid), {
+          name: name,
+          email: response.user.email
         });
+
+        localStorage.setItem('id', response.user.uid);
+        // this.getUser(response.user.uid);
 
         this.router.navigate(['/']);
       })
@@ -47,21 +42,16 @@ export class UserService {
       })
   }
 
-  login(email: string, password: string): void {
+  login(email: string, password: string) {
 
     signInWithEmailAndPassword(this.auth, email, password)
-      .then(userCredential => {
-        let user = userCredential.user;
-        let date = Date.now();
-        // console.log(user);
-
-        update(ref(this.db, 'users/' + user.uid), {
-          last_login: date
-        });
-
-        this.router.navigate(['/']);
+      .then((response: any) => {
+        return response;
       })
       .then(res => {
+        localStorage.setItem('id', res.user.uid);
+        // this.getUser(res.user.uid);
+        this.router.navigate(['/']);
       })
       .catch(err => {
         console.error(err.message);
@@ -70,7 +60,20 @@ export class UserService {
   }
 
   logout(): void {
+    localStorage.clear();
+    localStorage.removeItem('id');
     signOut(this.auth);
   }
+
+  // getUser(id: string) {
+  //   localStorage.clear();
+  //   let userRef = doc(this.fbs, 'users', id);
+  //   let user = docData(userRef, { idField: 'id' }) as Observable<IUser>;
+  //   user.subscribe(u => {
+  //     localStorage.setItem('name', u.name);
+  //     localStorage.setItem('email', u.email);
+  //     localStorage.setItem('id', u.id);
+  //   })
+  // }
 
 }
