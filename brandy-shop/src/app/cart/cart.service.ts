@@ -1,5 +1,5 @@
-import { Injectable, Input } from '@angular/core';
-import { Firestore, doc, setDoc, collection, collectionData, deleteDoc } from '@angular/fire/firestore';
+import { Injectable } from '@angular/core';
+import { Firestore, doc, setDoc, collection, collectionData, deleteDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { IProduct } from '../shared/product';
 
@@ -29,9 +29,20 @@ export class CartService {
       })
   }
 
+  updateCart(product: any, userId: string, productId: string) {
+    let cartRef = doc(this.fbs, `cart ${userId}`, productId);
+
+    return updateDoc(cartRef, {
+      qty: product.qty 
+    })
+      .catch(err => {
+        console.error(err);
+        throw err;
+      })
+  }
+
   deleteFromCart(userId: string, productId: string) {
     let cartRef = doc(this.fbs, `cart ${userId}`, productId);
     return deleteDoc(cartRef);
   }
-
 }
