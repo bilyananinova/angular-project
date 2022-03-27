@@ -7,6 +7,7 @@ export interface IProduct {
     "image": string;
     "id": string;
     "likes": IUser[];
+    "dislikes": IUser[];
     "comments": [];
     "createdAt": string;
     "qty": number

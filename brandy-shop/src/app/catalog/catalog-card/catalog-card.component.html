@@ -16,8 +16,8 @@
         <div class="product-action">
 
             <a [routerLink]="['/brandy-catalog', product.id]" class="details-btn"> <i class="fas fa-wine-bottle"></i> details </a>
-            <button class="like-btn"><i class="fas fa-thumbs-up"></i><span>0</span></button>
-            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i><span>0</span></button>
+            <button class="like-btn" (click)="like(product.id)"><i class="fas fa-thumbs-up"></i><span>{{product.likes.length || 0}}</span></button>
+            <button class="dislike-btn" (click)="dislike(product.id)" ><i class="fas fa-thumbs-down"></i><span>{{product.dislikes.length || 0}}</span></button>
             <button class="add-btn" (click)="cartHandler(product)"> <i class="fas fa-shopping-cart"></i> add to cart </button>
             <!-- admin btns -->
             <a [routerLink]="['/brandy-catalog', product.id, 'edit']" class="edit-btn"> <i class="fas fa-edit"></i> edit </a>
