@@ -1,9 +1,9 @@
 .home-product {
     width: 20em;
-    height: auto;
+    height: 22em;
     padding: 0.5em;
     border-radius: 0.5em;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.9);
+    /* box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.9); */
     color: black;
     background-color: #ffffff;  
     /* animation: zoom-in 3s ease-in-out; */

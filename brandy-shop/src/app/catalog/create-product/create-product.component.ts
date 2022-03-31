@@ -24,7 +24,7 @@ export class CreateProductComponent implements OnInit {
     if (this.product.title != '' && this.product.description != '' &&  this.product.price != 0 &&  this.product.image != '') {
 
       this.productsService.createProduct(this.product);
-      this.router.navigate(['/brandy-catalog'])
+      this.router.navigate(['/brandy-catalog']);
     } else {
       alert('All fields are required!');
     }

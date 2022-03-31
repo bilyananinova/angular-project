@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, doc, updateDoc, arrayUnion } from '@angular/fire/firestore';
+import { Firestore, doc, updateDoc, arrayUnion, query, where, collection, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { IProduct } from '../shared/product';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,7 @@ export class LikesService {
     });
 
     updateDoc(productRef, {
-      likes: arrayUnion(productId)
+      likes: arrayUnion(userId)
     });
   }
 
@@ -30,7 +32,14 @@ export class LikesService {
     });
 
     updateDoc(productRef, {
-      dislikes: arrayUnion(productId)
+      dislikes: arrayUnion(userId)
     });
   }
+
+  getLikes(userId: string): Observable<IProduct[]> {
+    let productRef = collection(this.fbs, 'brandy')
+    let queryString = query(productRef, where('likes', 'array-contains', userId));
+    return collectionData(queryString, { idField: 'id'  }) as Observable<IProduct[]>;
+  }
+
 }

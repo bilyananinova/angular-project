@@ -1,24 +1,24 @@
 <h3>Your Likes</h3>
 <section class="products-wrapper">
-    <section class="products-list">
+    <section class="products-list" *ngIf="products.length > 0; else empty">
 
-        <section class="user-product-card">
+        <section class="user-product-card" *ngFor="let product of products">
             <div class="user-product-image">
-                <img src="" alt="" />
+                <img src={{product.image}} alt="{{product.title}}" />
             </div>
             <div class="user-product-details">
 
                 <header class="user-product-header">
-                    <h5>Title</h5>
+                    <h5>{{product.title}}</h5>
                 </header>
 
-                <span class="user-product-price">50$</span>
+                <span class="user-product-price">{{product.price.toFixed(2)}}$</span>
 
-                <p>Lorem ipsum...</p>
+                <p>{{product.description.substring(0, 200)}}...</p>
 
                 <div class="user-product-action">
 
-                    <a routerLink="['/brandy-catalog'] " class=" details-btn">
+                    <a [routerLink]="['/brandy-catalog', product.id]" class="details-btn">
                         <i class="fas fa-wine-bottle"></i>
                         details
                     </a>
@@ -27,10 +27,12 @@
 
             </div>
         </section>
-
-        <h1 class="no-content">Check our
-            <a routerLink="/brandy-catalog">catalog</a> and find your brandy...
-        </h1>
-
     </section>
+
+        <ng-template #empty>
+            <h1 class="no-content">Check our
+                <a routerLink="/brandy-catalog">catalog</a> and find your brandy...
+            </h1>
+        </ng-template>
+
 </section>

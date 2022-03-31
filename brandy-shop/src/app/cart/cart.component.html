@@ -74,7 +74,7 @@
             </div>
             <div>Total Products: <span>{{totalQty}}</span></div>
             <div>Total Price to Pay: <span>{{totalToPay.toFixed(2)}} $</span></div>
-            <button (click)="endOrder()">Submit</button>
+            <button [disabled]="checkoutForm.invalid" (click)="endOrder()">Submit</button>
         </form>
     </section>
 </ng-template>

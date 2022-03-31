@@ -60,10 +60,8 @@ li {
 }
 
 .no-content {
-  color: #fffc53;
-  text-shadow: 1px 1px 1px #000000;
   text-align: center;
-  margin: auto;
+  margin: 2em 0;
 }
 
 .no-content a {

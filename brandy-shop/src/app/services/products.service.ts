@@ -12,7 +12,8 @@ export class ProductsService {
 
   getProducts(): Observable<IProduct[]> {
     let productRef = collection(this.fbs, 'brandy');
-    return collectionData(productRef, { idField: 'id' }) as Observable<IProduct[]>;
+    let queryString = query(productRef, orderBy("createdAt", "desc"));
+    return collectionData(queryString, { idField: 'id' }) as Observable<IProduct[]>;
   }
 
   getLastProducts(): Observable<IProduct[]> {

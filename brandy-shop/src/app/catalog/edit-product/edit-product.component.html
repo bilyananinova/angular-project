@@ -18,7 +18,7 @@
             <input type="text" class="form-input" id="product-img" name="image" #image="ngModel" [(ngModel)]="product.image" required>
             <p class="error-msg" *ngIf="image.touched && image.errors?.['required']"> Image is required! </p>
 
-            <button type="submit" class="edit-product-button">Edit</button>
+            <button type="submit" class="edit-product-button" [disabled]="editForm.invalid">Edit</button>
         </form>
     </section>
 </div>
