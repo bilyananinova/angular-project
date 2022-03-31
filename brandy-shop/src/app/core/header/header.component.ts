@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CartService } from 'src/app/cart/cart.service';
+import { CartService } from 'src/app/services/cart.service';
 import { IProduct } from 'src/app/shared/product';
-import { UserService } from 'src/app/user/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',

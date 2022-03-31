@@ -8,14 +8,18 @@
                 <h5>{{product.title}}</h5>
             </header>
 
-            <span class="details-price">{{product.price}}$</span>
+            <span class="details-price">{{product.price.toFixed(2)}}$</span>
             <p>{{product.description}}</p>
 
             <div class="details-action">
-                <button class="like-btn" (click)="like(product.id)"><i class="fas fa-thumbs-up"></i><span>{{product.likes.length || 0}}</span></button>
-            <button class="dislike-btn" (click)="dislike(product.id)" ><i class="fas fa-thumbs-down"></i><span>{{product.dislikes.length || 0}}</span></button>
-                <button class="add-btn" (click)="cartHandler(product)"> <i class="fas fa-shopping-cart"></i> add to cart </button>
-                <a [routerLink]="['/brandy-catalog', product.id, 'edit']" class="edit-btn"><i class="fas fa-edit"></i>edit</a>
+                <button class="like-btn" (click)="like(product.id)"><i
+                        class="fas fa-thumbs-up"></i><span>{{product.likes.length || 0}}</span></button>
+                <button class="dislike-btn" (click)="dislike(product.id)"><i
+                        class="fas fa-thumbs-down"></i><span>{{product.dislikes.length || 0}}</span></button>
+                <button class="add-btn" (click)="cartHandler(product)"> <i class="fas fa-shopping-cart"></i> add to cart
+                </button>
+                <a [routerLink]="['/brandy-catalog', product.id, 'edit']" class="edit-btn"><i
+                        class="fas fa-edit"></i>edit</a>
                 <button class="delete-btn" (click)="deleteHandler(product.id)"> <i class="fas fa-trash-alt"></i>
                     delete</button>
             </div>
@@ -24,19 +28,35 @@
     </section>
 </section>
 
+
 <section class="commentSection">
     <h5>Comments</h5>
-    <div class="comment">
-        <p><span class="author">Author</span> - <span class="date">11.12.2020</span></p>
-        <p class="comment-content">Comment content here</p>
-    </div>
+
+    <ng-container *ngIf="product.comments.length > 0; else noComments">
+
+        <div class="comment" *ngFor="let comment of comments">
+            <p><span class="author">{{comment.author}}</span> - <span class="date">{{comment.createdAt |
+                    date:'short':'BG'}}</span></p>
+            <p class="comment-content">{{comment.content}}</p>
+        </div>
+    </ng-container>
+
+    <ng-template #noComments>
+        <div class="comment">
+            <p class="comment-content">There are no comments yet...</p>
+        </div>
+    </ng-template>
 </section>
 
-<form class="commentForm">
+<form class="commentForm" #commentForm="ngForm" (ngSubmit)="comment(product.id, commentForm.value)">
     <h5>Add a review</h5>
     <label for="author">From:</label>
-    <input type="text" name="author" id="author" value="User" disabled />
+    <input type="text" name="author" id="author" [ngModel]="'Anonymous'" />
+
     <label for="content">Comment:</label>
-    <textarea name="content" id="content" placeholder="Leave a comment..." cols="5" rows="2"></textarea>
-    <input type="submit" value="Create comment">
+    <textarea name="content" id="content" placeholder="Leave a comment..." cols="5" rows="2" #content="ngModel" ngModel
+        required></textarea>
+    <p class="error-msg" *ngIf="content.touched && content.errors?.['required']">Please, write your comment!</p>
+
+    <input type="submit" [disabled]="commentForm.invalid" value="Create comment">
 </form>

@@ -203,8 +203,3 @@
     background: transparent;
     box-shadow: 0px 0px 5px 1px #202020;
 }
-
-.commentForm span {
-    color: #ff0000;
-    align-self: flex-start;
-}

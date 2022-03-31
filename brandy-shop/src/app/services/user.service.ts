@@ -3,7 +3,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 import { doc, setDoc, Firestore } from '@angular/fire/firestore';
 import { AngularFireAuth, } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -16,7 +16,7 @@ export class UserService {
   constructor(public auth: Auth, public fbs: Firestore, public router: Router, public fireAuth: AngularFireAuth) { }
 
   currentUser$: Observable<firebase.default.User | null> = this.fireAuth.authState;
-  email$: Observable<string | null> = this.currentUser$.pipe(map(user => { return !user ? null : user.email }));  
+  email$: Observable<string | null> = this.currentUser$.pipe(map(user => { return !user ? null : user.email }));
 
   register(name: string, email: string, password: string, rePass: string) {
 
@@ -24,7 +24,7 @@ export class UserService {
       alert('Password missmatch!')
     }
 
-    return createUserWithEmailAndPassword(this.auth, email, password)
+    createUserWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
         setDoc(doc(this.fbs, "users", response.user.uid), {
           name: name,

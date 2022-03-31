@@ -77,3 +77,9 @@ app-root {
   display: flex;
   flex-direction: column;
 }
+
+.error-msg {
+  color: #ff0000;
+  align-self: flex-start;
+  font-size: 0.8em;
+}
