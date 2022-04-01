@@ -1,0 +1,41 @@
+.error-wrapper {
+    text-transform: uppercase;
+    background:  url('../../assets/felix-w-YwMvjmjte9Y-unsplash.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 5em;
+    text-align: left;
+}
+
+.error-wrapper div::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    transform: translate(-50%, -50%);
+}
+
+.error-heading,
+.error-content,
+.error-status {
+    color: #ffffff;
+}
+
+.error-content {
+    font-size: 1.3em;
+    /* margin-bottom: 2em; */
+    padding: 2em;
+    padding-left: 0;
+}
+
+.error-status {
+    font-size: 5em;
+}
+
+.error-link {
+    padding: 0.8em 1.8em;
+    border-radius: 0.5em;
+    color: #000000;
+    background-color: #ffffff;
+}
