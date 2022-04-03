@@ -19,19 +19,21 @@ export class CatalogCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  like(productId: string) {
-    this.likeService.likeProduct(productId, this.userId)
+  like(productId: string): void {
+    this.likeService.likeProduct(productId, this.userId);
   }
 
-  dislike(productId: string) {
-    this.likeService.dislikeProduct(productId, this.userId)
+  dislike(productId: string): void {
+    this.likeService.dislikeProduct(productId, this.userId);
   }
 
-  cartHandler(product: any) {
-    this.cartService.addCart(product, this.userId)
+  cartHandler(): void {
+    this.cartService.addCart(this.product, this.userId);
   }
 
   deleteHandler(id: string) {
-    this.productsService.deleteProduct(id)
+    if (confirm('Are you sure you want to delete this product?')) {
+      this.productsService.deleteProduct(id);
+    }
   }
 }

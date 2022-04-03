@@ -10,20 +10,16 @@ import { ProductsService } from '../../services/products.service';
 })
 export class CreateProductComponent implements OnInit {
 
-  product!: IProduct;
-
   constructor(public productsService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  createHandle(value: IProduct) {
+  createHandle(value: IProduct): void {
 
-    this.product = value;
+    if (value.title != '' && value.description != '' && value.price && value.image != '') {
 
-    if (this.product.title != '' && this.product.description != '' &&  this.product.price != 0 &&  this.product.image != '') {
-
-      this.productsService.createProduct(this.product);
+      this.productsService.createProduct(value);
       this.router.navigate(['/brandy-catalog']);
     } else {
       alert('All fields are required!');

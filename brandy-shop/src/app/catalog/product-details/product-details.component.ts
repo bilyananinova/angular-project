@@ -1,7 +1,5 @@
-import { formatDate } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { throwError } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { CommentsService } from 'src/app/services/comments.service';
 import { LikesService } from 'src/app/services/likes.service';
@@ -16,9 +14,9 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  @Input() product!: IProduct;
+  @Input() product: IProduct = {} as IProduct;
   userId = localStorage.getItem('id') as string;
-  comments!: IComment[];
+  comments: IComment[] = [] as IComment[];
 
   constructor(
     private productsService: ProductsService,
@@ -37,26 +35,27 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
-  like(productId: string) {
-    this.likeService.likeProduct(productId, this.userId)
+  like(productId: string): void {
+    this.likeService.likeProduct(productId, this.userId);
   }
 
-  dislike(productId: string) {
-    this.likeService.dislikeProduct(productId, this.userId)
+  dislike(productId: string): void {
+    this.likeService.dislikeProduct(productId, this.userId);
   }
 
-  cartHandler(product: any): void {
+  cartHandler(): void {
     this.cartService.addCart(this.product, this.userId);
   }
 
-  deleteHandler(id: string) {
-    this.productsService.deleteProduct(id);
-    this.router.navigate(['/brandy-catalog']);
+  deleteHandler(id: string): void {
+    if (confirm('Are you sure you want to delete this product?')) {
+      this.productsService.deleteProduct(id).subscribe(() => console.log(`successfully delete product from catalog`));
+      this.router.navigate(['/brandy-catalog']);
+    }
   }
 
-  comment(productId: string, value: IComment) {
-    this.commentsService.postComment(productId, value)
-
+  comment(productId: string, value: IComment): void {
+    this.commentsService.postComment(productId, value).subscribe(() => console.log(`successfully create a comment`));
   }
 
 }

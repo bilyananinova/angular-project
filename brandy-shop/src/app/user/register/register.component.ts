@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  registerHandler(value: any) {
+  registerHandler(value: any): void {
     let name = value.name;
     let email = value.email;
     let password = value.password;

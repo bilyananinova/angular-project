@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore, doc, setDoc, collection, collectionData, deleteDoc, updateDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { IProduct } from '../shared/product';
 
 @Injectable({
@@ -15,34 +15,18 @@ export class CartService {
     return collectionData(cartRef, { idField: 'id' }) as Observable<IProduct[]>;
   }
 
-  addCart(product: any, userId: string) {
-
-    setDoc(doc(this.fbs, `cart ${userId}`, product.id),
-      product
-    )
-      .then(product => {
-        console.log('successfully added to cart');
-        return product;
-      })
-      .catch(err => {
-        console.error(err);
-      })
+  addCart(product: any, userId: string): Observable<any> {
+    let cartRef = doc(this.fbs, `cart ${userId}`, product.id);
+    return from(setDoc(cartRef, product));
   }
 
-  updateCart(product: any, userId: string, productId: string) {
+  updateCart(product: any, userId: string, productId: string): Observable<any> {
     let cartRef = doc(this.fbs, `cart ${userId}`, productId);
-
-    return updateDoc(cartRef, {
-      qty: product.qty 
-    })
-      .catch(err => {
-        console.error(err);
-        throw err;
-      })
+    return from(updateDoc(cartRef, { qty: product.qty }));
   }
 
-  deleteFromCart(userId: string, productId: string) {
+  deleteFromCart(userId: string, productId: string): Observable<any> {
     let cartRef = doc(this.fbs, `cart ${userId}`, productId);
-    return deleteDoc(cartRef);
+    return from(deleteDoc(cartRef));
   }
 }

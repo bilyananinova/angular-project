@@ -10,7 +10,7 @@ export class LikesService {
 
   constructor(public fbs: Firestore) { }
 
-  likeProduct(productId: string, userId: string) {
+  likeProduct(productId: string, userId: string): void {
     let userRef = doc(this.fbs, "users", userId);
     let productRef = doc(this.fbs, "brandy", productId);
 
@@ -23,7 +23,7 @@ export class LikesService {
     });
   }
 
-  dislikeProduct(productId: string, userId: string) {
+  dislikeProduct(productId: string, userId: string): void {
     let userRef = doc(this.fbs, "users", userId);
     let productRef = doc(this.fbs, "brandy", productId);
 
@@ -39,7 +39,7 @@ export class LikesService {
   getLikes(userId: string): Observable<IProduct[]> {
     let productRef = collection(this.fbs, 'brandy')
     let queryString = query(productRef, where('likes', 'array-contains', userId));
-    return collectionData(queryString, { idField: 'id'  }) as Observable<IProduct[]>;
+    return collectionData(queryString, { idField: 'id' }) as Observable<IProduct[]>;
   }
 
 }

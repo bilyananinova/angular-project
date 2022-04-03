@@ -3,7 +3,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 import { doc, setDoc, Firestore } from '@angular/fire/firestore';
 import { AngularFireAuth, } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { Observable, from } from 'rxjs';
+import { Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -18,7 +18,7 @@ export class UserService {
   currentUser$: Observable<firebase.default.User | null> = this.fireAuth.authState;
   email$: Observable<string | null> = this.currentUser$.pipe(map(user => { return !user ? null : user.email }));
 
-  register(name: string, email: string, password: string, rePass: string) {
+  register(name: string, email: string, password: string, rePass: string): void {
 
     if (password !== rePass) {
       alert('Password missmatch!')
@@ -27,13 +27,9 @@ export class UserService {
     createUserWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
         setDoc(doc(this.fbs, "users", response.user.uid), {
-          name: name,
           email: response.user.email
         });
-
         localStorage.setItem('id', response.user.uid);
-        // this.getUser(response.user.uid);
-
         this.router.navigate(['/']);
       })
       .catch(err => {
@@ -42,7 +38,7 @@ export class UserService {
       })
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string): void {
 
     signInWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
@@ -50,7 +46,6 @@ export class UserService {
       })
       .then(res => {
         localStorage.setItem('id', res.user.uid);
-        // this.getUser(res.user.uid);
         this.router.navigate(['/']);
       })
       .catch(err => {
@@ -64,16 +59,5 @@ export class UserService {
     localStorage.removeItem('id');
     signOut(this.auth);
   }
-
-  // getUser(id: string) {
-  //   localStorage.clear();
-  //   let userRef = doc(this.fbs, 'users', id);
-  //   let user = docData(userRef, { idField: 'id' }) as Observable<IUser>;
-  //   user.subscribe(u => {
-  //     localStorage.setItem('name', u.name);
-  //     localStorage.setItem('email', u.email);
-  //     localStorage.setItem('id', u.id);
-  //   })
-  // }
 
 }

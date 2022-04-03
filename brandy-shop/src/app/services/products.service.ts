@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData, doc, docData, addDoc, deleteDoc, updateDoc, query, orderBy, limit } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { IProduct } from '../shared/product';
 
 @Injectable({
@@ -27,34 +27,35 @@ export class ProductsService {
     return docData(productDocRef, { idField: 'id' }) as Observable<IProduct>;
   }
 
-  createProduct(product: IProduct): void {
+  createProduct(product: IProduct): Observable<any> {
     let productRef = collection(this.fbs, 'brandy');
-    addDoc(productRef, {
+    return from(addDoc(productRef, {
       title: product.title,
       description: product.description,
       price: +product.price,
       image: product.image,
       comments: [],
       likes: [],
+      dislikes: [],
       createdAt: Date.now(),
       qty: 1,
-    });
+    }));
   }
 
-  updateProduct(product: IProduct): void {
+  updateProduct(product: IProduct): Observable<any> {
 
     let productDocRef = doc(this.fbs, 'brandy', product.id);
-    updateDoc(productDocRef, {
+    return from(updateDoc(productDocRef, {
       id: product.id,
       title: product.title,
       description: product.description,
       price: +product.price,
       image: product.image
-    })
+    }));
   }
 
-  deleteProduct(id: string): void {
-    let productDocRef = doc(this.fbs, 'brandy', id)
-    deleteDoc(productDocRef);
+  deleteProduct(id: string): Observable<any> {
+    let productDocRef = doc(this.fbs, 'brandy', id);
+    return  from(deleteDoc(productDocRef));
   }
 }

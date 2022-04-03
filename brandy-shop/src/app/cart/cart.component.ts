@@ -10,7 +10,7 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  cartList!: IProduct[];
+  cartList: IProduct[] = [] as IProduct[];
   userId = localStorage.getItem('id') as string;
   totalQty: number = 0;
   totalToPay: number = 0;
@@ -34,25 +34,25 @@ export class CartComponent implements OnInit {
     }, 0);
   }
 
-  productIncrease(product: any) {
+  productIncrease(product: any): void {
     product.qty += 1;
-    return this.cartService.updateCart(product, this.userId, product.id);
+    this.cartService.updateCart(product, this.userId, product.id);
   }
 
-  productDecrease(product: any) {
+  productDecrease(product: any): number | void {
     if (product.qty != 0) {
       product.qty -= 1
-      return this.cartService.updateCart(product, this.userId, product.id);
+      this.cartService.updateCart(product, this.userId, product.id);
     } else {
       return 0;
     }
   }
 
-  productDelete(productId: string) {
+  productDelete(productId: string): void {
     this.cartService.deleteFromCart(this.userId, productId);
   }
 
-  endOrder() {
+  endOrder(): void {
     this.cartList.forEach(product => {
       this.cartService.deleteFromCart(this.userId, product.id);
     });

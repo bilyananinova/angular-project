@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HeaderComponent implements OnInit {
 
   email$: Observable<string | null> = this.userService.email$;
-  cart!: IProduct[];
+  cart: IProduct[] = [] as IProduct[];
   userId = localStorage.getItem('id') as string;
 
   constructor(public userService: UserService, private router: Router, private cartService: CartService) { }
