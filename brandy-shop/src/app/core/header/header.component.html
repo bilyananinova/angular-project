@@ -26,8 +26,9 @@
     <div>
         <a routerLink="/">Home</a>
         <a routerLink="/brandy-catalog">Shop</a>
+        
         <!-- admin navigation -->
-        <a routerLink="/brandy-catalog/create-product">Create product</a>
+        <a routerLink="/brandy-catalog/create-product" *ngIf="userService.isAdmin">Create product</a>
     </div>
 
     <div class="user" *ngIf="email$ | async as email; else login">

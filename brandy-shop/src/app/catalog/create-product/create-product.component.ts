@@ -19,7 +19,7 @@ export class CreateProductComponent implements OnInit {
 
     if (value.title != '' && value.description != '' && value.price && value.image != '') {
 
-      this.productsService.createProduct(value);
+      this.productsService.createProduct$(value);
       this.router.navigate(['/brandy-catalog']);
     } else {
       alert('All fields are required!');

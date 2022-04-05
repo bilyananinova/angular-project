@@ -28,12 +28,12 @@ export class CatalogCardComponent implements OnInit {
   }
 
   cartHandler(): void {
-    this.cartService.addCart(this.product, this.userId);
+    this.cartService.addCart$(this.product, this.userId);
   }
 
   deleteHandler(id: string) {
     if (confirm('Are you sure you want to delete this product?')) {
-      this.productsService.deleteProduct(id);
+      this.productsService.deleteProduct$(id);
     }
   }
 }

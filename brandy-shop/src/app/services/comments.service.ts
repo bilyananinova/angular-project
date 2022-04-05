@@ -10,7 +10,7 @@ export class CommentsService {
 
   constructor(public fbs: Firestore) { }
 
-  postComment(productId: string, content: IComment): Observable<any> {
+  postComment$(productId: string, content: IComment): Observable<any> {
     let productRef = doc(this.fbs, 'brandy', productId);
 
     return from(updateDoc(productRef, {

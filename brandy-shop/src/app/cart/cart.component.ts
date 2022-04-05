@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   constructor(public cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
-    this.cartService.getUserCart(this.userId).subscribe(p => {
+    this.cartService.getUserCart$(this.userId).subscribe(p => {
       this.cartList = p;
     })
   }
@@ -36,25 +36,25 @@ export class CartComponent implements OnInit {
 
   productIncrease(product: any): void {
     product.qty += 1;
-    this.cartService.updateCart(product, this.userId, product.id);
+    this.cartService.updateCart$(product, this.userId, product.id);
   }
 
   productDecrease(product: any): number | void {
     if (product.qty != 0) {
       product.qty -= 1
-      this.cartService.updateCart(product, this.userId, product.id);
+      this.cartService.updateCart$(product, this.userId, product.id);
     } else {
       return 0;
     }
   }
 
   productDelete(productId: string): void {
-    this.cartService.deleteFromCart(this.userId, productId);
+    this.cartService.deleteFromCart$(this.userId, productId);
   }
 
   endOrder(): void {
     this.cartList.forEach(product => {
-      this.cartService.deleteFromCart(this.userId, product.id);
+      this.cartService.deleteFromCart$(this.userId, product.id);
     });
 
     this.router.navigate(['/']);

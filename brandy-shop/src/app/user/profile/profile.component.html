@@ -1,6 +1,6 @@
 <h3>Your Likes</h3>
 <section class="products-wrapper">
-    <section class="products-list" *ngIf="products.length > 0; else empty">
+    <section class="products-list" *ngIf="products; else empty">
 
         <section class="user-product-card" *ngFor="let product of products">
             <div class="user-product-image">

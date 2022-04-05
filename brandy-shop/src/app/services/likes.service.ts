@@ -36,7 +36,7 @@ export class LikesService {
     });
   }
 
-  getLikes(userId: string): Observable<IProduct[]> {
+  getLikes$(userId: string): Observable<IProduct[]> {
     let productRef = collection(this.fbs, 'brandy')
     let queryString = query(productRef, where('likes', 'array-contains', userId));
     return collectionData(queryString, { idField: 'id' }) as Observable<IProduct[]>;

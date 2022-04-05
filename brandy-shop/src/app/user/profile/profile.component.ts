@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private likesService: LikesService) { }
 
   ngOnInit(): void {
-    this.likesService.getLikes(this.userId).subscribe(res => this.products = res);
+    this.likesService.getLikes$(this.userId).subscribe(res => this.products = res);
   }
 
 }

@@ -3,7 +3,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 import { doc, setDoc, Firestore } from '@angular/fire/firestore';
 import { AngularFireAuth, } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
@@ -17,14 +17,19 @@ export class UserService {
 
   currentUser$: Observable<firebase.default.User | null> = this.fireAuth.authState;
   email$: Observable<string | null> = this.currentUser$.pipe(map(user => { return !user ? null : user.email }));
+  // isLogged$: Observable<boolean> = this.currentUser$.pipe(map(user => { return user ? true : false }));
 
-  register(name: string, email: string, password: string, rePass: string): void {
+  get isAdmin(): any {
+    return localStorage.getItem('id') == "loqy3xS9M8cIS1jLtvwk0FMKh2o1" ? true : false;
+  }
+
+  register(name: string, email: string, password: string, rePass: string): Promise<void> {
 
     if (password !== rePass) {
       alert('Password missmatch!')
     }
 
-    createUserWithEmailAndPassword(this.auth, email, password)
+    return createUserWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
         setDoc(doc(this.fbs, "users", response.user.uid), {
           email: response.user.email
@@ -38,9 +43,9 @@ export class UserService {
       })
   }
 
-  login(email: string, password: string): void {
+  login(email: string, password: string): Promise<void> {
 
-    signInWithEmailAndPassword(this.auth, email, password)
+    return signInWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
         return response;
       })
@@ -54,10 +59,10 @@ export class UserService {
       })
   }
 
-  logout(): void {
+  logout(): Promise<void> {
     localStorage.clear();
     localStorage.removeItem('id');
-    signOut(this.auth);
+    return signOut(this.auth);
   }
 
 }

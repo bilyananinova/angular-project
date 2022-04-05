@@ -16,11 +16,11 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
-    this.productsService.getProduct(id).subscribe(p => this.product = p);
+    this.productsService.getProduct$(id).subscribe(p => this.product = p);
   }
 
   editHandler(): void {
-    this.productsService.updateProduct(this.product);
+    this.productsService.updateProduct$(this.product);
     this.router.navigate(['/brandy-catalog']);
   }
 

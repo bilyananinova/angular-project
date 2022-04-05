@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
+  // isLogged$: Observable<boolean> = this.userService.isLogged$;
   email$: Observable<string | null> = this.userService.email$;
   cart: IProduct[] = [] as IProduct[];
   userId = localStorage.getItem('id') as string;
@@ -19,13 +20,13 @@ export class HeaderComponent implements OnInit {
   constructor(public userService: UserService, private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getUserCart(this.userId).subscribe(c => {
+    this.cartService.getUserCart$(this.userId).subscribe(c => {
       this.cart = c;
-    })
+    });
   }
 
   logoutHandler() {
     this.userService.logout();
     this.router.navigate(['/']);
-  }  
+  }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { CommentsService } from 'src/app/services/comments.service';
 import { LikesService } from 'src/app/services/likes.service';
+import { UserService } from 'src/app/services/user.service';
 import { IComment } from 'src/app/shared/comment';
 import { IProduct } from 'src/app/shared/product';
 import { ProductsService } from '../../services/products.service';
@@ -24,11 +25,12 @@ export class ProductDetailsComponent implements OnInit {
     private router: Router,
     private cartService: CartService,
     private likeService: LikesService,
-    private commentsService: CommentsService) { }
+    private commentsService: CommentsService,
+    public userService: UserService) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
-    this.productsService.getProduct(id).subscribe(p => {
+    this.productsService.getProduct$(id).subscribe(p => {
       this.product = p;
       this.comments = this.product.comments;
     });
@@ -44,18 +46,18 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   cartHandler(): void {
-    this.cartService.addCart(this.product, this.userId);
+    this.cartService.addCart$(this.product, this.userId);
   }
 
   deleteHandler(id: string): void {
     if (confirm('Are you sure you want to delete this product?')) {
-      this.productsService.deleteProduct(id).subscribe(() => console.log(`successfully delete product from catalog`));
+      this.productsService.deleteProduct$(id).subscribe(() => console.log(`successfully delete product from catalog`));
       this.router.navigate(['/brandy-catalog']);
     }
   }
 
   comment(productId: string, value: IComment): void {
-    this.commentsService.postComment(productId, value).subscribe(() => console.log(`successfully create a comment`));
+    this.commentsService.postComment$(productId, value).subscribe(() => console.log(`successfully create a comment`));
   }
 
 }
