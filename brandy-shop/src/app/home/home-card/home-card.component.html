@@ -4,10 +4,10 @@
             <img src={{product.image}} alt={{product.title}} />
         </section>
         <header class="home-wine-header">
-            <h6>{{product.title}}</h6>
+            <h6>{{product.title | shortPipe: 25}}</h6>
         </header>
         <section class="home-wine-content">
-            <p>{{product.description.substring(0, 50)}}...</p>
+            <p>{{product.description | shortPipe: 50}}</p>
         </section>
     </section>
 </a>

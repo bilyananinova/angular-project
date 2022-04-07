@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LikesService } from 'src/app/services/likes.service';
 import { IProduct } from 'src/app/shared/product';
 
@@ -9,13 +10,13 @@ import { IProduct } from 'src/app/shared/product';
 })
 export class ProfileComponent implements OnInit {
 
-  products!: IProduct[];
+  products$!: Observable<IProduct[]>;
   userId = localStorage.getItem('id') as string;
 
   constructor(private likesService: LikesService) { }
 
   ngOnInit(): void {
-    this.likesService.getLikes$(this.userId).subscribe(res => this.products = res);
+    this.products$ = this.likesService.getLikes$(this.userId);
   }
 
 }

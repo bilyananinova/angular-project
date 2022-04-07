@@ -2,7 +2,7 @@
     <h3>From Our Shop</h3>
     <section class="last-articles" >
 
-        <app-home-card *ngFor="let product of products" [product]="product"></app-home-card>
+        <app-home-card *ngFor="let product of products$ | async" [product]="product"></app-home-card>
 
     </section>
 

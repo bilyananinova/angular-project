@@ -18,14 +18,14 @@
                         class="fas fa-thumbs-down"></i><span>{{product.dislikes?.length || 0}}</span></button>
                 <button class="add-btn" (click)="cartHandler()"> <i class="fas fa-shopping-cart"></i> add to cart
                 </button>
-
+                <!-- admin btns -->
                 <ng-container *ngIf="userService.isAdmin">
                     <a [routerLink]="['/brandy-catalog', product.id, 'edit']" class="edit-btn"><i
-                        class="fas fa-edit"></i>edit</a>
-                <button class="delete-btn" (click)="deleteHandler(product.id)"> <i class="fas fa-trash-alt"></i>
-                    delete</button>
+                            class="fas fa-edit"></i>edit</a>
+                    <button class="delete-btn" (click)="deleteHandler(product.id)"> <i class="fas fa-trash-alt"></i>
+                        delete</button>
                 </ng-container>
-                
+
             </div>
 
         </div>
@@ -52,7 +52,8 @@
     </ng-template>
 </section>
 
-<form class="commentForm" #commentForm="ngForm" (ngSubmit)="comment(product.id, commentForm.value)" *ngIf="userService.currentUser$ | async">
+<form class="commentForm" #commentForm="ngForm" (ngSubmit)="comment(product.id, commentForm.value)"
+    *ngIf="userService.currentUser$ | async">
     <h5>Add a review</h5>
     <label for="author">From:</label>
     <input type="text" name="author" id="author" [ngModel]="'Anonymous'" />
