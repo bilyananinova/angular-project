@@ -12,10 +12,6 @@ import { AngularFireModule } from '@angular/fire/compat';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { CatalogModule } from './catalog/catalog.module';
-import { CatalogRoutingModule } from './catalog/catalog-routing.module';
-import { UserModule } from './user/user.module';
-import { UserRoutingModule } from './user/user-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home-component/home.component';
@@ -34,10 +30,6 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    CatalogRoutingModule,
-    CatalogModule,
-    UserRoutingModule,
-    UserModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

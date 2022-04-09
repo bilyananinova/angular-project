@@ -11,9 +11,9 @@
             <li><strong>Email:</strong>email@mail.bg</li>
 
             <li class="cart">
-                <a routerLink="/cart">
+                <a routerLink="/user/cart">
                     <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count">{{cart.length}}</span>
+                    <span class="cart-count">{{(cart$ | async)?.length}}</span>
                 </a>
             </li>
 
@@ -26,20 +26,20 @@
     <div>
         <a routerLink="/">Home</a>
         <a routerLink="/brandy-catalog">Shop</a>
-        
+
         <!-- admin navigation -->
         <a routerLink="/brandy-catalog/create-product" *ngIf="userService.isAdmin">Create product</a>
     </div>
 
     <div class="user" *ngIf="email$ | async as email; else login">
-        <a routerLink="/profile">Welcome, {{email}} !</a>
+        <a routerLink="/user/profile">Welcome, {{email}} !</a>
         <a routerLink="/" (click)="logoutHandler()">Logout</a>
     </div>
 
     <ng-template #login>
         <div class="guest">
-            <a routerLink="/login">Login</a>
-            <a routerLink="/register">Register</a>
+            <a routerLink="/user/login">Login</a>
+            <a routerLink="/user/register">Register</a>
         </div>
     </ng-template>
 

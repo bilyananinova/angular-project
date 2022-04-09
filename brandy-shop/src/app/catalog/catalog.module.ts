@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { SharedModule } from '../shared/shared.module';
+import { CatalogRoutingModule } from './catalog-routing.module';
 
 
 
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    // RouterModule,
+    CatalogRoutingModule,
     FormsModule,
     SharedModule
   ],

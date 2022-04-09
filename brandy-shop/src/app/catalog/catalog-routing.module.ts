@@ -9,23 +9,22 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 
 const routes: Routes = [
   {
-    path: 'brandy-catalog',
+    path: '',
+    pathMatch: 'full',
     component: CatalogComponent
   },
   {
-    path: 'brandy-catalog/create-product',
-    pathMatch: 'full',
+    path: 'create-product',
     component: CreateProductComponent,
     canActivate: [AdminGuard, AuthGuard]
   },
   {
-    path: 'brandy-catalog/:id/edit',
-    pathMatch: 'full',
+    path: ':id/edit',
     component: EditProductComponent,
     canActivate: [AdminGuard, AuthGuard]
   },
   {
-    path: 'brandy-catalog/:id',
+    path: ':id',
     component: ProductDetailsComponent
   },
   
