@@ -14,17 +14,26 @@ export class HeaderComponent implements OnInit {
 
   // isLogged$: Observable<boolean> = this.userService.isLogged$;
   email$: Observable<string | null> = this.userService.email$;
+  userId!: string | null;
+  userId$: Observable<string | null> = this.userService.userId$;
   cart$!: Observable<IProduct[]>;
-  userId = localStorage.getItem('id') as string;
 
-  constructor(public userService: UserService, private router: Router, private cartService: CartService) { }
+  constructor(public userService: UserService, private router: Router, public cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cart$ = this.cartService.getUserCart$(this.userId);
+    this.userId$.subscribe(u => {
+      this.userId = u;
+      // console.log(this.userId);
+      if (this.userId) {
+        this.cart$ = this.cartService.getUserCart$(this.userId);
+      }
+    });
   }
+
 
   logoutHandler() {
     this.userService.logout();
     this.router.navigate(['/']);
   }
 }
+

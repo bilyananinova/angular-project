@@ -18,12 +18,12 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canLoad: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'cart',
     component: CartComponent,
-    canLoad: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 
 ];

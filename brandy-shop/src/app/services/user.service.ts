@@ -6,17 +6,16 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-
   constructor(public auth: Auth, public fbs: Firestore, public router: Router, public fireAuth: AngularFireAuth) { }
 
   currentUser$: Observable<firebase.default.User | null> = this.fireAuth.authState;
   email$: Observable<string | null> = this.currentUser$.pipe(map(user => { return !user ? null : user.email }));
+  userId$: Observable<string | null> = this.currentUser$.pipe(map(user => { return !user ? null : user.uid }));
   // isLogged$: Observable<boolean> = this.currentUser$.pipe(map(user => { return user ? true : false }));
 
   get isAdmin(): any {
@@ -43,9 +42,9 @@ export class UserService {
       })
   }
 
-  login(email: string, password: string): Promise<void> {
+  login(email: string, password: string) {
 
-    return signInWithEmailAndPassword(this.auth, email, password)
+    signInWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
         return response;
       })
