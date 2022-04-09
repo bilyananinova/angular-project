@@ -1,0 +1,88 @@
+.blog-article {
+    width: 60%;
+    margin: 3em auto;
+}
+
+.blog-article-title {
+    margin-bottom: 1em;
+}
+
+.content {
+    width: 100%;
+    background-color: #ffffff;
+    text-align: justify;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    padding: 2em;
+}
+
+.blog-article-media {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5em;
+    width: 45%;
+    float: left;
+    margin-right: 2em;
+}
+
+.blog-article-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blog-article-media::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+}
+
+.blog-article-content {
+    white-space: pre-wrap;
+}
+
+.article-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.article-actions a,
+.article-actions button {
+    margin: 1em 0.8em 0;
+    color: #ffffff;
+}
+
+.article-actions .edit-article-btn,
+.article-actions .delete-article-btn {
+    border: none;
+    border: 1px solid #fffc53;
+    padding: 0.5em 0.8em;
+    border-radius: 0.3em;
+    text-transform: uppercase;
+    color: #202020;
+    background: #fffc53;
+    margin-right: 0.8em;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.article-actions .delete-article-btn:hover,
+.article-actions .edit-article-btn:hover {
+    border: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px 1px #202020;
+    color: #202020;
+    cursor: pointer;
+}
+
+.article-actions .edit-article-btn:hover {
+    color: #2f00ff;  
+}
+
+.article-actions .delete-article-btn:hover {
+    color: #ff0000;
+}

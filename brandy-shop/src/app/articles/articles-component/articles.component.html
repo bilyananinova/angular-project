@@ -1,0 +1,10 @@
+<h3>From the blog</h3>
+<section class="blog-wrapper">
+    <div class="blog" *ngFor="let article of articles$ | async">
+
+        <app-article-card [article]="article"></app-article-card>
+
+
+    </div>
+
+</section>

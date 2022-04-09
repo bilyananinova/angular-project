@@ -3,6 +3,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { LikesService } from 'src/app/services/likes.service';
 import { IProduct } from '../../shared/product';
 import { ProductsService } from '../../services/products.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-catalog-card',
@@ -14,7 +15,11 @@ export class CatalogCardComponent implements OnInit {
   @Input() product!: IProduct;
   userId = localStorage.getItem('id') as string;
 
-  constructor(private productsService: ProductsService, private cartService: CartService, private likeService: LikesService) { }
+  constructor(
+    private productsService: ProductsService,
+    private cartService: CartService,
+    private likeService: LikesService,
+    public userService: UserService) { }
 
   ngOnInit(): void {
   }

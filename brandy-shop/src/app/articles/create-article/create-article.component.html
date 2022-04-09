@@ -1,0 +1,21 @@
+<h3>Create New Article</h3>
+<div class="form-wrapper create-article">
+    <section class="form-section create-article-section" >
+        <form class="create-article-form" #createForm="ngForm" (ngSubmit)="createHandle(createForm.value)">
+            <label htmlFor="article-title">Title</label>
+            <input type="text" class="form-input" id="article-title" name="title" #title="ngModel" ngModel required>
+            <p class="error-msg" *ngIf="title.touched && title.errors?.['required']"> Title is required! </p>
+
+            <label htmlFor="article-content">Content</label>
+            <textarea cols="50" rows="15" id="article-content" name="content" #content="ngModel" ngModel
+                required></textarea>
+            <p class="error-msg" *ngIf="content.touched && content.errors?.['required']"> Content is required! </p>
+
+            <label htmlFor="article-img">Image</label>
+            <input type="text" class="form-input" id="article-img" name="image" #image="ngModel" ngModel required>
+            <p class="error-msg" *ngIf="image.touched && image.errors?.['required']"> Image is required! </p>
+
+            <button type="submit" class="create-article-button">Create</button>
+        </form>
+    </section>
+</div>

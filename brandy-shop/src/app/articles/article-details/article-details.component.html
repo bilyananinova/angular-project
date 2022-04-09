@@ -1,0 +1,24 @@
+<article class="blog-article" *ngIf="article !== undefined">
+    <header class="blog-article-title">
+        <h3>{{article.title}}</h3>
+    </header>
+
+    <section class="content">
+        <section class="blog-article-media">
+            <img src={{article.image}} alt={{article.title}} />
+        </section>
+        <section class="blog-article-content">
+            {{article.content}}
+        </section>
+
+        <ng-container *ngIf="userService.isAdmin">
+            <section class="article-actions">
+                <a [routerLink]="['/articles', article.id, 'edit']" class="edit-article-btn"> <i class="fas fa-edit"></i> edit </a>
+                <button (click)="deleteHandler(article.id)" class="delete-article-btn"> <i class="fas fa-trash-alt"></i>
+                    delete
+                </button>
+            </section>
+        </ng-container>
+    </section>
+
+</article>
