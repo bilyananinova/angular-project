@@ -9,7 +9,6 @@ import { IArticle } from 'src/app/shared/article';
 export class ArticleCardComponent implements OnInit {
 
   @Input() article!: IArticle;
-  userId = localStorage.getItem('id') as string;
 
   constructor() { }
 

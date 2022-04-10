@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./articles/articles.module').then(m => m.ArticlesModule)
   },
   {
-    path: '*',
+    path: '**',
     component: NotFoundComponent
   }
 ];

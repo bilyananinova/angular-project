@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { CommentsService } from 'src/app/services/comments.service';
 import { LikesService } from 'src/app/services/likes.service';
@@ -16,7 +18,8 @@ import { ProductsService } from '../../services/products.service';
 export class ProductDetailsComponent implements OnInit {
 
   @Input() product: IProduct = {} as IProduct;
-  userId = localStorage.getItem('id') as string;
+  userId!: string;
+  userId$: Observable<string | null> = this.userService.userId$;
   comments: IComment[] = [] as IComment[];
 
   constructor(
@@ -26,7 +29,11 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService,
     private likeService: LikesService,
     private commentsService: CommentsService,
-    public userService: UserService) { }
+    public userService: UserService) {
+    this.userId$.subscribe(user => {
+      this.userId = !user ? '' : user
+    })
+  }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
@@ -34,7 +41,6 @@ export class ProductDetailsComponent implements OnInit {
       this.product = p;
       this.comments = this.product.comments;
     });
-
   }
 
   like(productId: string): void {
@@ -56,8 +62,11 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  comment(productId: string, value: IComment): void {
-    this.commentsService.postComment$(productId, value).subscribe(() => console.log(`successfully create a comment`));
+  comment(productId: string, value: IComment, form: NgForm): void {
+    this.commentsService.postComment$(productId, value).subscribe(() => {
+      form.resetForm();
+      console.log(`successfully create a comment`);
+    })
   }
 
 }

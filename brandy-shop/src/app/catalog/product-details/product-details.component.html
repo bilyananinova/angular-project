@@ -52,7 +52,7 @@
     </ng-template>
 </section>
 
-<form class="commentForm" #commentForm="ngForm" (ngSubmit)="comment(product.id, commentForm.value)"
+<form class="commentForm" #commentForm="ngForm" (ngSubmit)="comment(product.id, commentForm.value, commentForm)"
     *ngIf="userService.currentUser$ | async">
     <h5>Add a review</h5>
     <label for="author">From:</label>

@@ -40,12 +40,13 @@ export class CartComponent implements OnInit {
   }
 
   productDecrease(product: any): number | void {
-    if (product.qty != 0) {
+    if (product.qty != 1) {
       product.qty -= 1
       this.cartService.updateCart$(product, this.userId, product.id);
     } else {
-      return 0;
+      this.cartService.deleteFromCart$(this.userId, product.id);
     }
+
   }
 
   productDelete(productId: string): void {

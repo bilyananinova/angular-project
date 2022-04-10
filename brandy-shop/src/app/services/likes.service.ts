@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, doc, updateDoc, arrayUnion, query, where, collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, doc, updateDoc, arrayUnion, query, where, collection, collectionData, arrayRemove } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { IProduct } from '../shared/product';
 
@@ -15,11 +15,13 @@ export class LikesService {
     let productRef = doc(this.fbs, "brandy", productId);
 
     updateDoc(userRef, {
-      likes: arrayUnion(productId)
+      likes: arrayUnion(productId),
+      dislikes: arrayRemove(productId)
     });
 
     updateDoc(productRef, {
-      likes: arrayUnion(userId)
+      likes: arrayUnion(userId),
+      dislikes: arrayRemove(userId)
     });
   }
 
@@ -28,11 +30,13 @@ export class LikesService {
     let productRef = doc(this.fbs, "brandy", productId);
 
     updateDoc(userRef, {
-      dislikes: arrayUnion(productId)
+      dislikes: arrayUnion(productId),
+      likes: arrayRemove(productId)
     });
 
     updateDoc(productRef, {
-      dislikes: arrayUnion(userId)
+      dislikes: arrayUnion(userId),
+      likes: arrayRemove(userId)
     });
   }
 

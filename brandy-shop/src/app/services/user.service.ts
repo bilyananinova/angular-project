@@ -38,13 +38,13 @@ export class UserService {
       })
       .catch(err => {
         console.error(err.message);
-        alert('Wrong username or password');
+        alert('Wrong email or password');
       })
   }
 
   login(email: string, password: string) {
 
-    signInWithEmailAndPassword(this.auth, email, password)
+    return signInWithEmailAndPassword(this.auth, email, password)
       .then((response: any) => {
         return response;
       })
