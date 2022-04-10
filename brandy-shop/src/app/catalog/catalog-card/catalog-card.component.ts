@@ -4,7 +4,6 @@ import { LikesService } from 'src/app/services/likes.service';
 import { IProduct } from '../../shared/product';
 import { ProductsService } from '../../services/products.service';
 import { UserService } from 'src/app/services/user.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-catalog-card',
@@ -14,20 +13,15 @@ import { Observable } from 'rxjs';
 export class CatalogCardComponent implements OnInit {
 
   @Input() product!: IProduct;
-  userId!: string;
-  userId$: Observable<string | null> = this.userService.userId$;
+  userId = localStorage.getItem('id') as string;
 
   constructor(
     private productsService: ProductsService,
     private cartService: CartService,
     private likeService: LikesService,
-    public userService: UserService) { }
+    public userService: UserService) {}
 
-  ngOnInit(): void {
-    this.userId$.subscribe(user => {
-      this.userId = !user ? '' : user
-    });
-  }
+  ngOnInit(): void {  }
 
   like(productId: string): void {
     this.likeService.likeProduct(productId, this.userId);
