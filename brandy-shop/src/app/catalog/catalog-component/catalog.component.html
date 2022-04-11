@@ -1,6 +1,16 @@
 <h3>Our Brandy</h3>
 <section class="products-wrapper">
-    <section class="products-list" *ngFor="let product of products$ | async">
+    <div class="sort-div">
+        <label for="sort">Sort By</label>
+        <select id="sort">
+            <option (click)="sortDefault()">Default</option>
+            <option (click)="sortToHightPrice()">Sort by price: low to high</option>
+            <option (click)="sortToLowPrice()">Sort by price: high to low</option>
+            <option (click)="sortAZ()">Name: A-Z</option>
+            <option (click)="sortZA()">Name: Z-A</option>
+        </select>
+    </div>
+    <section class="products-list" *ngFor="let product of products">
 
         <app-catalog-card [product]="product"></app-catalog-card>
 

@@ -9,3 +9,25 @@
     padding-left: 2em;
     margin: auto;
 }
+
+.sort-div {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1em;
+    align-items: center;
+}
+
+.sort-div label {
+    padding-right: 0.5em;
+    font-size: 1.3em;
+}
+
+#sort {
+    padding: 0.5em 0.8em;
+    background-color: #ffffffb9;
+    border: none;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #202020;
+    border-radius: 0.3em;
+    font-size: 1.1em;
+}

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ProductsService } from '../../services/products.service';
 import { IProduct } from '../../shared/product';
 
@@ -10,12 +9,38 @@ import { IProduct } from '../../shared/product';
 })
 export class CatalogComponent implements OnInit {
 
-  products$!: Observable<IProduct[]>;
+  products!: IProduct[];
 
   constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.products$ = this.productService.getProducts$();
+    this.productService.getProducts$().subscribe(res => {
+      this.products = res;
+    })
   }
 
+  sortDefault() {
+    let sort = this.products.sort((a, b) => Number(b.createdAt) - Number(a.createdAt))
+    this.products = sort;
+  }
+
+  sortToHightPrice() {
+    let sort = this.products.sort((a, b) => a.price - b.price)
+    this.products = sort;
+  }
+
+  sortToLowPrice() {
+    let sort = this.products.sort((a, b) => b.price - a.price)
+    this.products = sort;
+  }
+
+  sortAZ() {
+    let sort = this.products.sort((a, b) => a.title.localeCompare(b.title))
+    this.products = sort;    
+  }
+
+  sortZA() {
+    let sort = this.products.sort((a, b) => b.title.localeCompare(a.title))
+    this.products = sort;    
+  }
 }
