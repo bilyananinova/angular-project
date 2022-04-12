@@ -64,6 +64,7 @@
     font-weight: 600;
     display: block;
     padding-bottom: 1em;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .details-header p {
@@ -86,12 +87,12 @@
 .details-action .like-btn,
 .details-action .dislike-btn {
     border: none;
-    border: 1px solid #fffc53;
+    border: 1px solid #fde167;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
     color: #202020;
-    background: #fffc53;
+    background: #fde167;
     margin-right: 0.8em;
     font-family: Verdana, Geneva, sans-serif;
 }
@@ -191,7 +192,7 @@
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
-    color: #fffc53;
+    color: #fde167;
     background: #202020;
 }
 

@@ -36,20 +36,29 @@
     padding: 0 2em;
 }
 
-.product-header {
-    margin: 0.5em 0;
+.product-details p {
+    font-family: Verdana, Geneva, sans-serif;
 }
 
-.product-header p {
-    opacity: 0.6;
+.product-header {
+    margin: 0.5em 0;
 }
 
 .product-price {
     font-weight: 600;
 }
 
+.product-price::after {
+    display: block;
+    content: '';
+    background-color: rgba(117, 117, 117, 0.993);
+    width: 4em;
+    height: 0.1em;
+    margin: 0.5em 0;
+}
+
 .product-action {
-    margin: 1.5em 0;
+    margin: 1em 0;
 }
 
 .product-action i {
@@ -59,14 +68,14 @@
 .details-btn, .add-btn,
 .like-btn, .dislike-btn,
 .edit-btn, .delete-btn  {
-    border: none;
-    border: 1px solid #fffc53;
+    border: 1px solid #fde167;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
     color: #202020;
-    background: #fffc53;
-    margin-right: 0.8em;
+    background: #fde167;
+    margin: 0.2em 0.8em 0 0;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 .add-btn,

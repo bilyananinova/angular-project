@@ -30,12 +30,12 @@
 .summary-box button,
 .checkout-box button {
   width: 80%;
-  border: 1px solid #fffc53;
+  border: 1px solid #fde167;
   padding: 1em 1.5em;
   border-radius: 0.3em;
   text-transform: uppercase;
   color: #202020;
-  background: #fffc53;
+  background: #fde167;
   margin: 1.5em;
 }
 
@@ -119,7 +119,7 @@
 }
 
 .order-type {
-  color: #fffc53;
+  color: #fde167;
   text-transform: uppercase;
 }
 
@@ -143,12 +143,12 @@
 }
 
 .order-action button {
-  border: 1px solid #fffc53;
+  border: 1px solid #fde167;
   padding: 0.5em 0.8em;
   border-radius: 0.3em;
   text-transform: uppercase;
   color: #202020;
-  background: #fffc53;
+  background: #fde167;
   margin: 0 1em;
 }
 

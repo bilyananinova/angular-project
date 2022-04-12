@@ -15,7 +15,7 @@
     margin-top: 8px;
     margin-bottom: 0;
     font-size: 32px;
-    color: #fffc53;
+    color: #fde167;
     text-shadow: 1px 1px 1px #000000;
 }
 
@@ -91,7 +91,7 @@
 
 .mainav .active a, .mainav a:hover, .mainav li:hover > a {
     color:#000000; 
-    background-color: #fffc53;;
+    background-color:#fde167;
 }
 
 .mainav div {

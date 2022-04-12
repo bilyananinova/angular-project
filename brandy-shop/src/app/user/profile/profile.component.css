@@ -64,12 +64,12 @@
 }
 
 .user-product-action a {
-    border: 1px solid #fffc53;;
+    border: 1px solid #fde167;
     padding: 0.5em 0.8em;
     border-radius: 0.3em;
     text-transform: uppercase;
     color: #202020;
-    background: #fffc53;;
+    background: #fde167;
     margin-right: 0.8em;
 }
 
