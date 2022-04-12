@@ -42,7 +42,7 @@
         <h4>Cart Summary</h4>
         <div>Total Products: <span>{{totalQty}}</span></div>
         <div>Total Price to Pay: <span>{{totalToPay.toFixed(2)}} $</span></div>
-        <button (click)="showCart = false">Continue</button>
+        <button [disabled]="cartList.length == 0" (click)="showCart = false">Continue</button>
     </section>
 
 </ng-container>

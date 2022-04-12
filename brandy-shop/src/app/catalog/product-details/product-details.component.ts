@@ -64,7 +64,7 @@ export class ProductDetailsComponent implements OnInit {
 
   comment(productId: string, value: IComment, form: NgForm): void {
     this.commentsService.postComment$(productId, value).subscribe(() => {
-      form.resetForm();
+      form.reset();
       console.log(`successfully create a comment`);
     })
   }

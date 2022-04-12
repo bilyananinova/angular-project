@@ -1,18 +1,31 @@
 <h3>Our Brandy</h3>
 <section class="products-wrapper">
-    <div class="sort-div">
-        <label for="sort">Sort By</label>
-        <select id="sort">
-            <option (click)="sortDefault()">Default</option>
-            <option (click)="sortToHightPrice()">Sort by price: low to high</option>
-            <option (click)="sortToLowPrice()">Sort by price: high to low</option>
-            <option (click)="sortAZ()">Name: A-Z</option>
-            <option (click)="sortZA()">Name: Z-A</option>
-        </select>
-    </div>
-    <section class="products-list" *ngFor="let product of products">
+    <aside class="products-aside">
+        <div class="sort-div">
+            <label for="sort">Sort By</label>
+            <select id="sort">
+                <option (click)="sortDefault()">Default</option>
+                <option (click)="sortToHightPrice()">Sort by price: low to high</option>
+                <option (click)="sortToLowPrice()">Sort by price: high to low</option>
+                <option (click)="sortAZ()">Name: A-Z</option>
+                <option (click)="sortZA()">Name: Z-A</option>
+            </select>
+        </div>
 
-        <app-catalog-card [product]="product"></app-catalog-card>
+        <div class="filter-div">
+            <span>Filter By Price</span>
+            <button (click)="filter(0, 20)">0 - 20$</button>
+            <button (click)="filter(20, 40)">20$ - 40$</button>
+            <button (click)="filter(40, 60)">40$ - 60$</button>
+            <button (click)="filter(60)">Above 60$</button>
+            <button (click)="filter(0)">All Price</button>
+        </div>
+
+    </aside>
+
+    <section class="products-list">
+
+        <app-catalog-card *ngFor="let product of products" [product]="product"></app-catalog-card>
 
     </section>
 </section>
