@@ -42,14 +42,14 @@
         <h4>Cart Summary</h4>
         <div>Total Products: <span>{{totalQty}}</span></div>
         <div>Total Price to Pay: <span>{{totalToPay.toFixed(2)}} $</span></div>
-        <button [disabled]="cartList.length == 0" (click)="showCart = false">Continue</button>
+        <button [disabled]="cartList.length == 0" (click)="continue()">Continue</button>
     </section>
 
 </ng-container>
 
 <ng-template #checkout>
 
-    <section class="checkout-box">
+    <section class="checkout-box" *ngIf="showCart == false" [@show]>
         <h4>Checkout</h4>
         <form #checkoutForm="ngForm">
 

@@ -1,14 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from '../../shared/product';
 import { CartService } from '../../services/cart.service';
+import {
+  trigger,
+  style,
+  animate,
+  transition,
+  keyframes
+} from '@angular/animations';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+  animations: [
+    trigger('show', [
+      transition(':enter', [
+        style({ opacity: 0, width: 0 }),
+        animate('500ms linear', keyframes([
+          style({ opacity: 0, width: '10%' }),
+          style({ opacity: 1, width: '30%' })
+        ]))
+      ])
+    ])
+  ]
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, DoCheck {
 
   cartList: IProduct[] = [] as IProduct[];
   userId = localStorage.getItem('id') as string;
@@ -22,6 +40,10 @@ export class CartComponent implements OnInit {
     this.cartService.getUserCart$(this.userId).subscribe(p => {
       this.cartList = p;
     })
+  }
+
+  continue() {
+    this.showCart = !this.showCart
   }
 
   ngDoCheck(): void {

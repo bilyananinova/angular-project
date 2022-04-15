@@ -3,11 +3,7 @@
     background-color: #ffffff;
     box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.9);
     width: 20em;
-    flex: 0 0 30%;
     margin: 0 2em 3em;
-    /* margin-bottom: 3em; */
-    justify-content: space-evenly;
-    /* justify-content: flex-start; */
 }
 
 .blog-article-card-image {
