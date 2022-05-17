@@ -20,38 +20,46 @@ export class CatalogComponent implements OnInit {
     })
   }
 
-  sortDefault() {
-    let sort = this.products.sort((a, b) => Number(b.createdAt) - Number(a.createdAt));
-    this.products = sort;
-  }
+  onChange(val: any): IProduct[] {
+    let sort = [];
 
-  sortToHightPrice() {
-    let sort = this.products.sort((a, b) => a.price - b.price);
-    this.products = sort;
-  }
+    if (val.value === 'sortDefault') {
+      sort = this.products.sort((a, b) => Number(b.createdAt) - Number(a.createdAt));
+      this.products = sort;
+    };
 
-  sortToLowPrice() {
-    let sort = this.products.sort((a, b) => b.price - a.price);
-    this.products = sort;
-  }
+    if (val.value === 'sortToHightPrice') {
+      sort = this.products.sort((a, b) => a.price - b.price);
+      console.log(sort);
 
-  sortAZ() {
-    let sort = this.products.sort((a, b) => a.title.localeCompare(b.title));
-    this.products = sort;
-  }
+      this.products = sort;
+    }
 
-  sortZA() {
-    let sort = this.products.sort((a, b) => b.title.localeCompare(a.title));
-    this.products = sort;
+    if (val.value === 'sortToLowPrice') {
+      sort = this.products.sort((a, b) => b.price - a.price);
+      this.products = sort;
+    }
+
+    if (val.value === 'sortAZ') {
+      sort = this.products.sort((a, b) => a.title.localeCompare(b.title));
+      this.products = sort;
+    }
+
+    if (val.value === 'sortZA') {
+      sort = this.products.sort((a, b) => b.title.localeCompare(a.title));
+      this.products = sort;
+    }
+
+    return this.products
   }
 
   filter(from: number, to?: number) {
 
     this.productService.getProducts$().pipe(
-      map(arr => arr.filter(p => 
-        !to 
-        ? p.price > from 
-        : p.price > from && p.price <= to)
+      map(arr => arr.filter(p =>
+        !to
+          ? p.price > from
+          : p.price > from && p.price <= to)
       ))
       .subscribe(arr => {
         this.products = arr;
