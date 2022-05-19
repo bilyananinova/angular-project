@@ -30,8 +30,6 @@ export class CatalogComponent implements OnInit {
 
     if (val.value === 'sortToHightPrice') {
       sort = this.products.sort((a, b) => a.price - b.price);
-      console.log(sort);
-
       this.products = sort;
     }
 

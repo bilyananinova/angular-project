@@ -1,3 +1,5 @@
+live demo: https://brandy-shop.web.app/
+
 # angular-brandy-store
 
 The client side is a single page app, dynamically updating with Angular and Firebase. The application consists of users, products and orders. Each user can register, login and logout. Users can also view each products details and make orders. Admins can add, edit and delete entries.
